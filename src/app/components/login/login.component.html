@@ -1,15 +1,33 @@
-<div>
-  <div class="position-absolute top-50 start-50 translate-middle">
-    <label for="email" class="form-label">Correo electrónico:</label>
-    <input type="email" placeholder="Email" aria-describedby="emailHelpBlock" class="form-control" id="email" [(ngModel)]="email" />
-    <br> <br>
-    <label for="password" class="form-label">Contraseña</label>
-    <input type="password" placeholder="Contraseña" id="password" class="form-control" aria-describedby="passwordHelpBlock" [(ngModel)]="password" />
+<div class="container-lg d-flex justify-content-center align-items-center vh-100">
 
-    <br> <br>
-
-    <button (click)="login(email, password)" class="btn btn-primary">
-      Iniciar sesión
-    </button>
+  <div class="row w-100 shadow rounded-end">
+    <div class="col-md-4 d-flex flex-column align-items-center justify-content-center text-center" id="image-color">
+      <div class="position-relative">
+        <img src="/patricio_putero.png" class="img-fluid custom-image">
+      </div>
+    </div>
+  
+    <div class="col-md-8 d-flex flex-column align-items-center justify-content-center rounded-start" id="login-field">
+      <div class="w-75">
+        <h2>¡Bienvenido!</h2>
+        <br>
+        <label for="email" class="form-label">Correo electrónico:</label>
+        <input type="email" placeholder="Email" aria-describedby="emailHelpBlock" class="form-control" id="email" [(ngModel)]="email" />
+        <br> <br>
+        <label for="password" class="form-label">Contraseña</label>
+        <input type="password" placeholder="Contraseña" id="password" class="form-control" aria-describedby="passwordHelpBlock" [(ngModel)]="password" />
+    
+        <br> <br>
+    
+        <div class="d-flex justify-content-center">
+          <button (click)="login(email, password)" class="btn btn-primary w-50" id="image-color">
+            Iniciar sesión
+          </button>
+        </div>
+        
+      </div>
+      
+    </div>
   </div>
+  
 </div>

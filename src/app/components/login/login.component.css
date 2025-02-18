@@ -7,6 +7,10 @@ h1{
   text-align: center;
 }
 
+h2 {
+  font-weight: bold;
+}
+
 
 
 
@@ -20,6 +24,22 @@ tr{
 td{
   margin: 5px;
   font-family: 'Times New Roman', Times, serif;
+}
+
+#image-color {
+  background-color: #a07c94;
+}
+
+.custom-image {
+  position: relative;
+  left: -80px; /* Mueve la imagen más a la izquierda */
+  transform: rotate(-5deg); /* Le da un pequeño giro */
+  border-radius: 15px; /* Bordes redondeados */
+  
+}
+
+#login-field {
+  background-color: #262a30;
 }
 
 
