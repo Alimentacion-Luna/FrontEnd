@@ -13,20 +13,14 @@ h3.greeting{
 
 
 button.buttonLogin{
-
-
   width: 200px;
   height: 50px;
-  background-color: #272b30;
+  background-color: #9a7d94;
   color: white;
-
   border-radius: 10px;
-
-
   align-self: center;
-
-
-
 }
 
-
+body{
+  background-color: #313131;
+}

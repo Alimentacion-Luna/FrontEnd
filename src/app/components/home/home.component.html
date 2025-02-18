@@ -1,3 +1,9 @@
-<h1 class="title">Bienvenido a Alimentación Luna 🌔</h1>
-<h3 class="greeting">Hola, {{ loggedInUser? loggedInUser.name : 'Cargando...' }}</h3>
-<button class="buttonLogin" (click)="logout()">Logout</button>
+
+<body>
+  <h1 class="title">Bienvenido a Alimentación Luna 🌔</h1>
+  <h3 class="greeting">Hola, {{ loggedInUser? loggedInUser.name + "!" : 'Cargando...' }}</h3>
+  <button class="buttonLogin" (click)="logout()">Logout</button>
+</body>
+
+
+
