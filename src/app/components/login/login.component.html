@@ -1,10 +1,15 @@
 <div>
-  <div>
-    <input type="email" placeholder="Email" [(ngModel)]="email" />
-    <input type="password" placeholder="Password" [(ngModel)]="password" />
+  <div class="position-absolute top-50 start-50 translate-middle">
+    <label for="email" class="form-label">Correo electrónico:</label>
+    <input type="email" placeholder="Email" aria-describedby="emailHelpBlock" class="form-control" id="email" [(ngModel)]="email" />
+    <br> <br>
+    <label for="password" class="form-label">Contraseña</label>
+    <input type="password" placeholder="Contraseña" id="password" class="form-control" aria-describedby="passwordHelpBlock" [(ngModel)]="password" />
 
-    <button (click)="login(email, password)">
-      Login
+    <br> <br>
+
+    <button (click)="login(email, password)" class="btn btn-primary">
+      Iniciar sesión
     </button>
   </div>
 </div>
