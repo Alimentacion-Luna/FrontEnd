@@ -1,0 +1,32 @@
+h1.title{
+  text-align: center;
+  color: rgb(76, 43, 223);
+}
+
+
+h3.greeting{
+  text-align: center;
+  color: rgb(76, 43, 223);
+
+}
+
+
+
+button.buttonLogin{
+
+
+  width: 200px;
+  height: 50px;
+  background-color: #272b30;
+  color: white;
+
+  border-radius: 10px;
+
+
+  align-self: center;
+
+
+
+}
+
+
