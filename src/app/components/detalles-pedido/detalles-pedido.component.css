@@ -1,0 +1,15 @@
+.img-proveedor {
+  width: 150px !important;
+  height: 150px !important;
+  padding: 0 !important;
+  border-radius: 7px;
+  border: 1px solid #ccc;
+}
+
+.row {
+  outline: 1px solid red;
+}
+
+.col {
+  outline: 2px solid green;
+}

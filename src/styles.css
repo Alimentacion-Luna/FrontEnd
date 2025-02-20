@@ -1,2 +1,65 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("../public/bootstrap.min.css");
+
+:root {
+  --primary: #9F7296;
+  --primary-fg: #EED5F3;
+  --green-bg: #739063;
+  --red-bg: #975B5B;
+  --green-fg: #B9FFC6;
+  --red-fg: #FFC1B9;
+
+  --background: #1E1E1E;
+  --on-background: #2D2C2C;
+  --surface: #3C3C3C;
+
+  --primary-text: white;
+  --secondary-text: #AFAFAF;
+  --tertiary-text: #919191;
+}
+
+.bg {
+  background-color: var(--background);
+}
+
+.on-bg {
+  background-color: var(--on-background);
+}
+
+.surface {
+  background-color: var(--surface)
+}
+
+.boton {
+  border: none;
+  border-radius: 10px;
+  min-width: 125px;
+  max-width: 300px;
+}
+
+.boton-primario {
+  background-color: var(--primary);
+  color: var(--primary-fg);
+}
+
+.boton-verde {
+  background-color: var(--green-bg);
+  color: var(--green-fg);
+}
+
+.boton-rojo {
+  background-color: var(--red-bg);
+  color: var(--red-fg);
+}
+
+.texto-primario {
+  color: var(--primary-text);
+}
+
+.texto-secundario {
+  color: var(--secondary-text);
+}
+
+.texto-terciario {
+  color: var(--tertiary-text);
+}
