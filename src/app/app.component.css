@@ -1,0 +1,10 @@
+
+.text-navbar {
+    color: pink;
+}
+
+.nav-active {
+    color: #ffdede;
+
+    font-weight: bold;
+}
