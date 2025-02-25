@@ -125,3 +125,28 @@ button.btn-outline-success:hover {
 
 
 
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /*alineacion del centro*/
+  padding-top: 80px;
+  height: 70vh;
+}
+
+.ordenBotones{
+
+  display: flex;
+
+  justify-content: center; /*alineacion del centro*/
+
+}
+
+.generalContent{
+
+  display: flex;
+
+  justify-content: center; /*alineacion del centro*/
+
+}
+

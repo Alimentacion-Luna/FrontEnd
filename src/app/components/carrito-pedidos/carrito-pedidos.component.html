@@ -1,62 +1,22 @@
-<div class="container-fluid vh-100 bg-dark text-white">
 
-  <div class="navbar-container">
-    <nav class="navbar py-1 px-3 d-flex align-items-center justify-content-between w-100 fixed-top">
-      <div class="d-flex align-items-center">
-        <h6 class="text-rose fw-bold mb-0">
-          <i>Welcome, {{ loggedInUser?.name || 'User' }} </i>
-        </h6>
-      </div>
+<main class="main-content">
 
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+  <div class="generalContent">
 
-      <div class="d-flex align-items-center">
+    <input class="buscaNombre" type="search" placeholder="Search" aria-label="Search">
+    <button class="botonCarrito" type="submit">Search</button>
 
-        <button class="btn custom-btn settings-btn mx-2">
-          <img src="settings.png" alt="Settings" class="icon-img">
-        </button>
+    <div class="ordenBotones">
 
-        <button class="btn custom-btn notifications-btn mx-2">
-          <img src="bell.png" alt="Notifications" class="icon-img">
-        </button>
+      <button class="botonCarrito" type="submit">Imagen A</button>
+      <button class="botonCarrito" type="submit">Imagen B</button>
+      <button class="botonCarrito" type="submit">Imagen C</button>
+      <button class="botonCarrito" type="submit">Imagen D</button>
+      <button class="botonCarrito" type="submit">Imagen E</button>
+      <button class="botonCarrito" type="submit">Imagen F</button>
 
-        <button class="btn custom-btn user-btn mx-2">
-          <img src="patricio_putero.png" alt="User" class="rounded-circle user-img">
-        </button>
-      </div>
-    </nav>
+    </div>
   </div>
 
-  <div class="sidebar">
-    <ul class="sidebar-list">
-      <li class="sidebar-item"><a href="#">Home</a></li>
-      <li class="sidebar-item"><a href="listado-pedidos">Listado de Pedidos</a></li>
-      <li class="sidebar-item"><a href="construccion">Almacen</a></li>
-      <li class="sidebar-item"><a href="construccion">Historial</a></li>
-      <li class="sidebar-item"><a href="construccion">Gatitos</a></li>
-    </ul>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</main>
 
