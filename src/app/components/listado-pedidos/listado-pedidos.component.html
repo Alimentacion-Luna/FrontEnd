@@ -1,0 +1,89 @@
+<div class="container-fluid vh-100 bg-dark text-white">
+
+  <div class="navbar-container">
+    <nav class="navbar py-1 px-3 d-flex align-items-center justify-content-between w-100 fixed-top">
+      <div class="d-flex align-items-center">
+        <h6 class="text-rose fw-bold mb-0">
+          <i>Welcome, {{ loggedInUser?.name || 'User' }} </i>
+        </h6>
+      </div>
+
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    
+      <div class="d-flex align-items-center">
+
+        <button class="btn custom-btn settings-btn mx-2">
+          <img src="settings.png" alt="Settings" class="icon-img">
+        </button>
+    
+        <button class="btn custom-btn notifications-btn mx-2">
+          <img src="bell.png" alt="Notifications" class="icon-img">
+        </button>
+  
+        <button class="btn custom-btn user-btn mx-2">
+          <img src="patricio_putero.png" alt="User" class="rounded-circle user-img">
+        </button>
+      </div>
+    </nav>
+  </div>
+  
+  <div class="sidebar">
+    <ul class="sidebar-list">
+      <li class="sidebar-item"><a href="#">Home</a></li>
+      <li class="sidebar-item"><a href="#">Dashboard</a></li>
+      <li class="sidebar-item"><a href="#">Settings</a></li>
+      <li class="sidebar-item"><a href="#">Profile</a></li>
+      <li class="sidebar-item"><a href="#">Messages</a></li>
+    </ul>
+  </div>
+
+  <main class="main-content">
+    
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h1>Listado de Pedidos</h1>
+      <button class="btn btn-rose">Agregar Pedido</button>
+    </div>
+
+    <div class="bg-dark p-4 rounded shadow-box" style="height: 760px; ">
+      <div class="table-responsive">
+        <table class="table table-dark table-hover">
+          <thead class="thead-fixed">
+            <tr>
+              <th></th>
+              <th>Proveedor</th>
+              <th>Fecha Pedido</th>
+              <th>Precio</th>
+              <th>Estado</th>
+              <th>Estado</th>
+              <th></th>
+            </tr>
+          </thead>
+          
+        </table>
+        <div class="tbody-scroll" style="height: 645px;">
+          <table class="table table-dark table-hover">
+            <tbody >
+              <tr *ngFor="let pedido of pedidos">
+                <td>{{ pedido.id_pedido }}</td>
+                <td>{{ pedido.id_proveedor }}</td>
+                <td>{{ pedido.fecha_pedido }}</td>
+                <td>{{ pedido.precio_total }}</td>
+                <td>{{ pedido.estado }}</td>
+                <td>
+                  <button class="btn btn-primary mx-2">Editar</button>
+                  <button class="btn btn-primary mx-2">Detalles</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+  
+</div>
