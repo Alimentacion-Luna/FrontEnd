@@ -4,10 +4,11 @@ import { Router, RouterOutlet } from '@angular/router';
 import { FuncsService } from './services/funcs.service';
 import { account } from '../appwrite';
 import {NgbCollapseModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgIf, NgbCollapseModule],
+  imports: [RouterOutlet, NgIf, NgbCollapseModule, NgbPopoverModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -23,19 +23,13 @@
             <img src="bell.png" alt="Notifications" class="icon-img">
           </button>
   
-          <button type="button" class="btn custom-btn user-btn mx-2" placement="bottom" ngbPopover="Holaaaa" popoverTitle="Popover on bottom">
+          <ng-template #popContent
+	    ><button type="button" (click)="logout()" class="btn btn-primary">Cerrar sesión</button>
+        </ng-template
+>
+          <button type="button" class="btn custom-btn user-btn mx-2" [ngbPopover]="popContent">
             <img src="patricio_putero.png" alt="User" class="rounded-circle user-img">
           </button>
-
-          <button
-	type="button"
-	class="btn btn-outline-secondary me-2"
-	placement="bottom"
-	ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
-	popoverTitle="Popover on bottom"
->
-	Popover on bottom
-</button>
         </div>
       </nav>
     </div>
@@ -50,7 +44,7 @@
       </ul>
     </div>
   
-  
+  </div>
   
   
   <router-outlet></router-outlet>
