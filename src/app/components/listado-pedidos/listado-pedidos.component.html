@@ -10,8 +10,8 @@
         <tr>
           <th class="align-middle" [width]="127"></th>
           <th class="align-middle" [width]="220">Proveedor</th>
-          <th class="align-middle" [width]="190">Fecha Pedido</th>
-          <th class="align-middle" [width]="233">Precio (€)</th>
+          <th class="align-middle" [width]="210">Fecha Pedido</th>
+          <th class="align-middle" [width]="215">Precio (€)</th>
           <th class="align-middle">Estado</th>
           <th class="align-middle"></th>
         </tr>
@@ -25,11 +25,12 @@
             <td class="align-middle" [width]="90">{{ pedido.id_pedido }}</td>
             <td class="align-middle" [width]="120">{{ pedido.id_proveedor }}</td>
             <td class="align-middle" [width]="120">{{ pedido.fecha_pedido }}</td>
-            <td class="align-middle" [width]="120">{{ pedido.precio_total }}</td>
+            <td class="align-middle" [width]="120">{{ pedido.precio_total | currency: 'EUR' }}</td>
             <td class="align-middle" [width]="120">{{ pedido.estado }}</td>
             <td class="align-middle" [width]="120">
-              <button class="btn btn-primary">Detalles</button>
+              <button class="btn btn-primary" [routerLink]="['/detalles-pedido', pedido.id_pedido]">Detalles</button>
             </td>
+            
           </tr>
         </tbody>
       </table>

@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FuncsService } from '../../services/funcs.service';
 import { account } from '../../../appwrite';
-import { NgFor } from '@angular/common';
+import { CurrencyPipe, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-listado-pedidos',
-  imports: [NgFor],
+  imports: [NgFor, RouterLink, CurrencyPipe],
   templateUrl: './listado-pedidos.component.html',
   styleUrls: ['./listado-pedidos.component.css']
 })
