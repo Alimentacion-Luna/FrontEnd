@@ -37,6 +37,7 @@ export class AppComponent {
 
     
         // verificar que sea un usuario registrado
+        /* Esta función no consigue hacer lo que hace. */
         funcs.getLoggedInUser().then(res => {
           if (res == null) {
             this.router.navigate(['/login']);
