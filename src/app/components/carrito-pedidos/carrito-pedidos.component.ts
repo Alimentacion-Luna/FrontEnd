@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FuncsService } from '../../services/funcs.service';
 import { account } from '../../../appwrite';
-import { CurrencyPipe, NgClass, NgFor } from '@angular/common';
+import { CurrencyPipe, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-carrito-pedidos',
-  imports: [NgFor, CurrencyPipe, NgClass],
+  imports: [NgFor, CurrencyPipe],
   templateUrl: './carrito-pedidos.component.html',
   styleUrl: './carrito-pedidos.component.css'
 })
@@ -21,6 +21,7 @@ export class CarritoPedidosComponent {
           this.router.navigate(['/login']);
         } else {
           this.loggedInUser = res;
+          this.cargarDetallesProductos();
         }
       });
     }
@@ -32,6 +33,9 @@ export class CarritoPedidosComponent {
 
 
 
+    ngOnInit(): void {
+        this.cargarDetallesProductos();
+    }
 
 
     //listado de pruebas (cambiar por BBDD)

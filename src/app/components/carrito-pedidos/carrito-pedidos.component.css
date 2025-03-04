@@ -1,24 +1,72 @@
 .main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /*alineacion del centro*/
+  margin-left: 260px;
+  padding: 20px;
   padding-top: 80px;
-  height: 70vh;
 }
 
+
+/*Colores de Botones*/
+.textoRosa{
+  color: #c084fc;
+}
+
+
 .ordenBotones{
-
   display: flex;
-
-  justify-content: center; /*alineacion del centro*/
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 
 }
 
 .generalContent{
 
   display: flex;
-
-  justify-content: center; /*alineacion del centro*/
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
 }
 
+
+.tablaListado{
+  margin-top: 20px;
+
+}
+
+
+.tablaCuerpo{
+
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tablaCuerpo th, .tablaCuerpo td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.tablaCuerpo th {
+  background-color: #f0f0f0;
+}
+
+.box-shadow {
+  background-color: #343638;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.tablaListado {
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+.btn-primary {
+  border-color: #c084fc;
+}
