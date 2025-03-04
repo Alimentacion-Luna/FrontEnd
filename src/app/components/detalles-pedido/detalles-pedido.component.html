@@ -19,8 +19,10 @@
       </div>
 
       <div class="info-right ml-3">
-        <p class="estado" [ngClass]="pedido.estado === 'ENTREGADO' ? 'bg-success' : 'bg-danger'">
+        <p class="estado">
           <strong>Estado:</strong> {{ pedido.estado }}
+          <button class="bg-success ml-3">Entregado</button>
+          <button class="bg-danger ml-3">No Entregado</button>
         </p>
         <p><strong>Fecha del Pedido:</strong> {{ pedido.fecha_pedido }}</p>
       </div>
@@ -32,7 +34,7 @@
       <table class="table">
         <thead class="thead-dark">
           <tr>
-            <th [width]="110"></th>
+            <th [width]="115"></th>
             <th [width]="110">Producto</th>
             <th [width]="110">Cantidad</th>
             <th [width]="120">Precio Unitario (€)</th>

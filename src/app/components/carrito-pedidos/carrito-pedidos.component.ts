@@ -2,17 +2,17 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FuncsService } from '../../services/funcs.service';
 import { account } from '../../../appwrite';
-import { NgFor } from '@angular/common';
+import { CurrencyPipe, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-carrito-pedidos',
-  imports: [],
+  imports: [NgFor, CurrencyPipe],
   templateUrl: './carrito-pedidos.component.html',
   styleUrl: './carrito-pedidos.component.css'
 })
 export class CarritoPedidosComponent {
   loggedInUser: any = null;
-    pedidos: any[] = [];
+    productos: any[] = [];
 
     constructor(private router: Router, private funcs: FuncsService) {
       // verificar que sea un usuario registrado
@@ -21,6 +21,7 @@ export class CarritoPedidosComponent {
           this.router.navigate(['/login']);
         } else {
           this.loggedInUser = res;
+          this.cargarDetallesProductos();
         }
       });
     }
@@ -32,33 +33,28 @@ export class CarritoPedidosComponent {
 
 
 
-
-
-
-
-
-    //listado de pruebas (cambiar)
-    cargarPedidos() {
-      this.pedidos = [
-        { id_pedido: 1, id_proveedor: 101, fecha_pedido: '2022-01-01', precio_total: 100.00, estado: 'Entregado' },
-        { id_pedido: 2, id_proveedor: 102, fecha_pedido: '2022-01-05', precio_total: 200.00, estado: 'En proceso' },
-        { id_pedido: 3, id_proveedor: 103, fecha_pedido: '2022-01-10', precio_total: 300.00, estado: 'Pendiente' },
-        { id_pedido: 4, id_proveedor: 101, fecha_pedido: '2022-01-15', precio_total: 400.00, estado: 'Entregado' },
-        { id_pedido: 5, id_proveedor: 102, fecha_pedido: '2022-01-20', precio_total: 500.00, estado: 'En proceso' },
-        { id_pedido: 6, id_proveedor: 103, fecha_pedido: '2022-01-25', precio_total: 600.00, estado: 'Pendiente' },
-        { id_pedido: 7, id_proveedor: 101, fecha_pedido: '2022-02-01', precio_total: 700.00, estado: 'Entregado' },
-        { id_pedido: 8, id_proveedor: 102, fecha_pedido: '2022-02-05', precio_total: 800.00, estado: 'En proceso' },
-        { id_pedido: 9, id_proveedor: 103, fecha_pedido: '2022-02-10', precio_total: 900.00, estado: 'Pendiente' },
-        { id_pedido: 10, id_proveedor: 101, fecha_pedido: '2022-02-15', precio_total: 1000.00, estado: 'Entregado' },
-        { id_pedido: 11, id_proveedor: 102, fecha_pedido: '2022-02-20', precio_total: 1100.00, estado: 'En proceso' },
-        { id_pedido: 12, id_proveedor: 103, fecha_pedido: '2022-02-25', precio_total: 1200.00, estado: 'Pendiente' },
-        { id_pedido: 13, id_proveedor: 101, fecha_pedido: '2022-03-01', precio_total: 1300.00, estado: 'Entregado' },
-        { id_pedido: 14, id_proveedor: 102, fecha_pedido: '2022-03-05', precio_total: 1400.00, estado: 'En proceso' },
-        { id_pedido: 15, id_proveedor: 103, fecha_pedido: '2022-03-10', precio_total: 1500.00, estado: 'Pendiente' }
-      ];
+    ngOnInit(): void {
+        this.cargarDetallesProductos();
     }
 
 
+    //listado de pruebas (cambiar por BBDD)
+    cargarDetallesProductos(): void {
+
+      this.productos = [
+        { id_pedido: 1, id_producto: 1, nombre: 'Leche', cantidad: 10, precio_unitario: 1.00, precio_total: 10.00, descuento: 0.1, impuesto: 0.2 },
+        { id_pedido: 2, id_producto: 2, nombre: 'Pan', cantidad: 5, precio_unitario: 0.5, precio_total: 2.50, descuento: 0.05, impuesto: 0.1 },
+        { id_pedido: 3, id_producto: 3, nombre: 'Cereal', cantidad: 3, precio_unitario: 2.00, precio_total: 6.00, descuento: 0.15, impuesto: 0.2 },
+        { id_pedido: 4, id_producto: 4, nombre: 'Jugo', cantidad: 2, precio_unitario: 1.50, precio_total: 3.00, descuento: 0.05, impuesto: 0.1 },
+        { id_pedido: 5, id_producto: 5, nombre: 'Galletas', cantidad: 8, precio_unitario: 0.75, precio_total: 6.00, descuento: 0.1, impuesto: 0.2 },
+        { id_pedido: 6, id_producto: 6, nombre: 'Azúcar', cantidad: 4, precio_unitario: 0.50, precio_total: 2.00, descuento: 0.05, impuesto: 0.1 },
+        { id_pedido: 7, id_producto: 7, nombre: 'Mantequilla', cantidad: 2, precio_unitario: 1.50, precio_total: 3.00, descuento: 0.1, impuesto: 0.2 },
+        { id_pedido: 8, id_producto: 8, nombre: 'Café', cantidad: 6, precio_unitario: 2.00, precio_total: 12.00, descuento: 0.15, impuesto: 0.2 },
+        { id_pedido: 9, id_producto: 9, nombre: 'Té', cantidad: 3, precio_unitario: 1.50, precio_total: 4.50, descuento: 0.05, impuesto: 0.1 },
+        { id_pedido: 10, id_producto: 10, nombre: 'Chocolate', cantidad: 1, precio_unitario: 3.00, precio_total: 3.00, descuento: 0.1, impuesto: 0.2 }
+      ];
+
+    }
 
 
 

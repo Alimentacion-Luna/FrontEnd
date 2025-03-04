@@ -1,19 +1,94 @@
 
 <main class="main">
 
-  <div class="generalContent">
+  <div>
+    <h1 class="textoRosa">
+      Carrito de Pedidos
+    </h1>
+  </div>
 
-    <input class="buscaNombre" type="search" placeholder="Search" aria-label="Search">
-    <button class="botonCarrito" type="submit">Search</button>
+  <div class="generalContent">
 
     <div class="ordenBotones">
 
-      <button class="botonCarrito" type="submit">Imagen A</button>
-      <button class="botonCarrito" type="submit">Imagen B</button>
-      <button class="botonCarrito" type="submit">Imagen C</button>
-      <button class="botonCarrito" type="submit">Imagen D</button>
-      <button class="botonCarrito" type="submit">Imagen E</button>
-      <button class="botonCarrito" type="submit">Imagen F</button>
+      <div class="container bg-transparent h-100 d-flex align-items-center justify-content-center col-md-offset-2 mx-auto">
+
+        <div class="row">
+          <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
+            <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
+              <i class="bi bi-cart h1"></i>
+            </button>
+          </div>
+
+          <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
+            <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
+              <i class="bi bi-calendar-date h1"></i>
+            </button>
+          </div>
+
+          <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
+            <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
+              <i class="bi bi-shop-window h1"></i>
+            </button>
+          </div>
+
+          <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
+            <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
+              <i class="bi bi-credit-card h1"></i>
+            </button>
+          </div>
+
+          <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
+            <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
+              <i class="bi bi-sliders2 h1"></i>
+            </button>
+          </div>
+
+          <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
+            <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
+              <i class="bi bi-gear h1"></i>
+            </button>
+          </div>
+
+          <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
+            <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
+              <i class="bi bi-receipt h1"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <div>
+      <tr class="tablaCuerpo">
+        <td [width]="150">Producto</td>
+        <td [width]="150">Cantidad</td>
+        <td [width]="150">Descuento</td>
+        <td [width]="150">Impuesto</td>
+        <td [width]="150">Precio Unitario</td>
+        <td [width]="150">Precio Total</td>
+      </tr>
+    </div>
+
+    <!-- Tabla del carrito -->
+    <div class="tablaListado">
+      <tbody class="tablaCuerpo">
+          <table>
+
+            <tr *ngFor="let producto of productos">
+              <td [width]="150">{{ producto.nombre }}</td>
+              <td [width]="150">{{ producto.cantidad }}</td>
+              <td [width]="150">{{ producto.descuento * 100 }}%</td>
+              <td [width]="150">{{ producto.impuesto * 100 }}%</td>
+              <td [width]="150">{{ producto.precio_unitario | currency: 'EUR' }}</td>
+              <td [width]="150">{{ producto.precio_total | currency: 'EUR' }}</td>
+            </tr>
+          </table>
+      </tbody>
 
     </div>
   </div>
