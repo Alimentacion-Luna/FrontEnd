@@ -3,19 +3,71 @@
 
   <div class="generalContent">
 
-    <input class="buscaNombre" type="search" placeholder="Search" aria-label="Search">
-    <button class="botonCarrito" type="submit">Search</button>
+    <div class="container bg-transparent h-100 d-flex align-items-center justify-content-center col-md-offset-2 mx-auto">
 
-    <div class="ordenBotones">
+      <div class="row">
+        <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
+          <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
+            <i class="bi bi-cart h1"></i>
+          </button>
+        </div>
 
-      <button class="botonCarrito" type="submit">Imagen A</button>
-      <button class="botonCarrito" type="submit">Imagen B</button>
-      <button class="botonCarrito" type="submit">Imagen C</button>
-      <button class="botonCarrito" type="submit">Imagen D</button>
-      <button class="botonCarrito" type="submit">Imagen E</button>
-      <button class="botonCarrito" type="submit">Imagen F</button>
+        <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
+          <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
+            <i class="bi bi-calendar-date h1"></i>
+          </button>
+        </div>
+
+        <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
+          <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
+            <i class="bi bi-shop-window h1"></i>
+          </button>
+        </div>
+
+        <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
+          <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
+            <i class="bi bi-credit-card h1"></i>
+          </button>
+        </div>
+
+        <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
+          <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
+            <i class="bi bi-sliders2 h1"></i>
+          </button>
+        </div>
+
+        <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
+          <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
+            <i class="bi bi-gear h1"></i>
+          </button>
+        </div>
+
+        <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
+          <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
+            <i class="bi bi-receipt h1"></i>
+          </button>
+        </div>
+      </div>
 
     </div>
+
+
+
+    <div class="TablaListado" >
+      <tbody>
+          <table>
+            <tr *ngFor="let producto of productos">
+              <td [width]="150">{{ producto.id_producto }}</td>
+
+
+
+
+            </tr>
+          </table>
+      </tbody>
+
+    </div>
+
   </div>
 
 </main>
