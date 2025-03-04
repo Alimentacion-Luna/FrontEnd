@@ -58,10 +58,12 @@
           <table>
             <tr *ngFor="let producto of productos">
               <td [width]="150">{{ producto.id_producto }}</td>
-
-
-
-
+              <td [width]="150">{{ producto.nombre }}</td>
+              <td [width]="150">{{ producto.cantidad }}</td>
+              <td [width]="150">{{ producto.precio_unitario | currency: 'EUR' }}</td>
+              <td [width]="150">{{ producto.precio_total | currency: 'EUR' }}</td>
+              <td [width]="150">{{ producto.descuento * 100 }}%</td>
+              <td [width]="150">{{ producto.impuesto * 100 }}%</td>
             </tr>
           </table>
       </tbody>
