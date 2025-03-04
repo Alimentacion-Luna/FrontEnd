@@ -1,24 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FuncsService } from '../../services/funcs.service';
-import { CurrencyPipe, NgClass, NgFor } from '@angular/common';
+import { CurrencyPipe, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-detalles-pedido',
-  imports: [NgFor, CurrencyPipe, NgClass],
+  imports: [NgFor, CurrencyPipe],
   templateUrl: './detalles-pedido.component.html',
   styleUrls: ['./detalles-pedido.component.css']
 })
-export class DetallesPedidoComponent implements OnInit {
+export class DetallesPedidoComponent{
+  loggedInUser: any = null;
   pedido: any = {};
   productos: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router
-  ) {}
+    private router: Router,
+    private funcs: FuncsService
+  ) {
+    // verificar que sea un usuario registrado
+    funcs.getLoggedInUser().then(res => {
+      if (res == null) {
+        this.router.navigate(['/login']);
+      } else {
+        this.loggedInUser = res;
+      }
+    });
 
-  ngOnInit(): void {
+    // cargar detalles del pedido
     const pedidoId = this.route.snapshot.paramMap.get('id');
     if (pedidoId) {
       this.cargarDetallesPedido(pedidoId);
@@ -37,7 +48,6 @@ export class DetallesPedidoComponent implements OnInit {
         telefono: '+34 123 456 789'
       },
       fecha_pedido: '2025-02-27',
-      estado: 'ENTREGADO',
       total: 900.00
     };
 
@@ -54,5 +64,5 @@ export class DetallesPedidoComponent implements OnInit {
       { id_pedido: pedidoId, id_producto: 10, nombre: 'Chocolate', cantidad: 1, precio_unitario: 3.00, precio_total: 3.00, descuento: 0.1, impuesto: 0.2 }
     ];
 
-  };
+  }
 }

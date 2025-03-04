@@ -9,6 +9,22 @@
   border-radius: 10px;
 }
 
+.bg-success {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.bg-danger {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
 /* Información del pedido */
 
 .image-container img {
@@ -40,7 +56,6 @@ h1, h3 {
 
 /* Estado */
 .estado {
-  padding: 5px;
   border-radius: 5px;
 }
 
