@@ -1,1 +1,42 @@
-<router-outlet />
+<div class="container-fluid bg-dark text-white" *ngIf="isLogged()">
+
+  <nav class="navbar py-1 px-3 d-flex align-items-center justify-content-between w-100 fixed-top">
+
+    <h6 class="text-rose fw-bold mb-0"><i>Welcome, {{ loggedInUser?.name || 'User' }} </i></h6>
+
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+
+    <div class="d-flex align-items-center">
+      <button class="btn custom-btn mx-2">
+        <img src="settings.png" alt="Settings" class="icon-img">
+      </button>
+      <button class="btn custom-btn mx-2">
+        <img src="bell.png" alt="Notifications" class="icon-img">
+      </button>
+      <button type="button" class="btn custom-btn user-btn mx-2" [ngbPopover]="logoutTemplate">
+        <img src="patricio_putero.png" alt="User" class="rounded-circle user-img">
+      </button>
+    </div>
+
+  </nav>
+
+  <div class="sidebar">
+    <ul class="sidebar-list">
+      <li class="sidebar-item"><a href="#">Home</a></li>
+      <li class="sidebar-item"><a href="listado-pedidos">Listado de Pedidos</a></li>
+      <li class="sidebar-item"><a href="construccion">Almacén</a></li>
+      <li class="sidebar-item"><a href="construccion">Historial</a></li>
+      <li class="sidebar-item"><a href="construccion">Gatitos</a></li>
+    </ul>
+  </div>
+
+  <ng-template #logoutTemplate>
+    <button type="button" (click)="logout()" class="btn btn-primary">Cerrar sesión</button>
+  </ng-template>
+
+</div>
+
+<router-outlet></router-outlet>

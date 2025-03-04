@@ -24,3 +24,9 @@ button.buttonLogin{
 body{
   background-color: #313131;
 }
+
+
+.border {
+  --bs-border-opacity: 1;
+  border-color: rgba(var(--bs-success-rgb), var(--bs-border-opacity)) !important;
+}
