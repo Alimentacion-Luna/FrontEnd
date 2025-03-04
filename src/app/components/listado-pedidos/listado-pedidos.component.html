@@ -1,7 +1,7 @@
 <main class="main">
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h1>Listado de Pedidos</h1>
-    <button class="btn btn-primary">Agregar Pedido</button>
+    <button class="btn btn-primary" [routerLink]="['/carrito-pedidos']" >Agregar Pedido</button>
   </div>
 
   <div class="bg-dark p-4 rounded box-shadow">
@@ -30,7 +30,7 @@
             <td class="align-middle" [width]="120">
               <button class="btn btn-primary" [routerLink]="['/detalles-pedido', pedido.id_pedido]">Detalles</button>
             </td>
-            
+
           </tr>
         </tbody>
       </table>
