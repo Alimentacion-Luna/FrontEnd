@@ -1,3 +1,8 @@
+export interface  Tipo {
+  idTipo: number,
+  nombre: string
+}
+
 export interface Proveedor {
   idProveedor: number;
   nombre: string;
@@ -7,9 +12,9 @@ export interface Proveedor {
 
 export interface Producto {
   idProducto: number;
-  idTipoProducto: number;
-  nombre: string;
+  tipo: Tipo,
   impuesto: number;
+  nombre: string;
 }
 
 export interface Pedido {
