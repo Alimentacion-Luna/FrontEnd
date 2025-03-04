@@ -28,6 +28,11 @@
   justify-content: center;
   margin: 30px;
   padding: 10px;
+
+
+
+
+
 }
 
 /* Tabla de pedidos */
@@ -51,9 +56,6 @@
   text-align: left;
 }
 
-.tablaCuerpo th {
-  background-color: #f0f0f0;
-}
 
 
 /**/
@@ -69,6 +71,4 @@
   max-height: 400px;
 }
 
-.btn-primary {
-  border-color: #c084fc;
-}
+
