@@ -1,0 +1,76 @@
+
+<main class="main">
+
+  <div class="generalContent">
+
+    <div class="container bg-transparent h-100 d-flex align-items-center justify-content-center col-md-offset-2 mx-auto">
+
+      <div class="row">
+        <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
+          <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
+            <i class="bi bi-cart h1"></i>
+          </button>
+        </div>
+
+        <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
+          <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
+            <i class="bi bi-calendar-date h1"></i>
+          </button>
+        </div>
+
+        <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
+          <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
+            <i class="bi bi-shop-window h1"></i>
+          </button>
+        </div>
+
+        <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
+          <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
+            <i class="bi bi-credit-card h1"></i>
+          </button>
+        </div>
+
+        <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
+          <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
+            <i class="bi bi-sliders2 h1"></i>
+          </button>
+        </div>
+
+        <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
+          <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
+            <i class="bi bi-gear h1"></i>
+          </button>
+        </div>
+
+        <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
+          <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
+            <i class="bi bi-receipt h1"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <div class="TablaListado" >
+      <tbody>
+          <table>
+            <tr *ngFor="let producto of productos">
+              <td [width]="150">{{ producto.id_producto }}</td>
+              <td [width]="150">{{ producto.nombre }}</td>
+              <td [width]="150">{{ producto.cantidad }}</td>
+              <td [width]="150">{{ producto.precio_unitario | currency: 'EUR' }}</td>
+              <td [width]="150">{{ producto.precio_total | currency: 'EUR' }}</td>
+              <td [width]="150">{{ producto.descuento * 100 }}%</td>
+              <td [width]="150">{{ producto.impuesto * 100 }}%</td>
+            </tr>
+          </table>
+      </tbody>
+
+    </div>
+
+  </div>
+
+</main>
+

@@ -1,28 +1,62 @@
-<div class="container-sm shadow my-5 p-2">
-  <!-- Detalles del Pedido -->
-  <div class="row">
-    <div class="row justify-content-around">
-      <div class="col">
-        <h1><b>Pedido Nº</b> 12345</h1>
-      </div>
+<main class="main">
 
-      <div class="col d-flex flex-row justify-content-end gap-2">
-        <button class="boton boton-verde">Recibido</button>
-        <button class="boton boton-rojo">Rechazado</button>
-      </div>
-    </div>
-    <div class="row">
-      <img src="https://i.pinimg.com/736x/51/ff/8e/51ff8ed5a7124ce1b01ed6e4a4a5c686.jpg" alt="Proveedor" width="150px"
-           height="150px" class="img-proveedor">
-      <div class="col">
-        <h4 class="texto-terciario">Empresa:</h4>
-        <h3 class="texto-secundario">Panesitos S.L.</h3>
-      </div>
-      <div class="col"></div>
-    </div>
-
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>Pedido Nº - #{{ pedido.id_pedido }}</h1>
+    <button class="btn btn-primary" onclick="history.back()">Volver</button>
   </div>
 
-  <!-- Listado de productos -->
-  <div class="row"></div>
-</div>
+  <div class="bg-dark p-4 rounded box-shadow">
+    <div class="pedido-info d-flex align-items-center mb-4">
+
+      <div class="image-container">
+        <img src="patricio_putero.png" class="img-fluid rounded-circle" style="width: 100px; height: 100px; object-fit: cover;">
+      </div>
+
+      <div class="info-left ml-3">
+        <p><strong>Proveedor:</strong> {{ pedido.proveedor.nombre }}</p>
+        <p><strong>Correo:</strong> {{ pedido.proveedor.correo }}</p>
+        <p><strong>Teléfono:</strong> {{ pedido.proveedor.telefono }}</p>
+      </div>
+
+      <div class="info-right ml-3">
+        <p class="estado" [ngClass]="pedido.estado === 'ENTREGADO' ? 'bg-success' : 'bg-danger'">
+          <strong>Estado:</strong> {{ pedido.estado }}
+        </p>
+        <p><strong>Fecha del Pedido:</strong> {{ pedido.fecha_pedido }}</p>
+      </div>
+    </div>
+
+    <hr class="text-white">
+
+    <h3>Productos en este Pedido:</h3>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th [width]="110"></th>
+            <th [width]="110">Producto</th>
+            <th [width]="110">Cantidad</th>
+            <th [width]="120">Precio Unitario (€)</th>
+            <th [width]="120">Precio Total (€)</th>
+            <th [width]="120">Descuento (%)</th>
+            <th [width]="150">Impuesto (%)</th>
+          </tr>
+        </thead>
+        </table>
+
+        <div class="table-body-scroll">
+          <table class="table table-dark table-hover">
+          <tbody>
+            <tr *ngFor="let producto of productos">
+              <td [width]="150">{{ producto.id_producto }}</td>
+              <td [width]="150">{{ producto.nombre }}</td>
+              <td [width]="150">{{ producto.cantidad }}</td>
+              <td [width]="150">{{ producto.precio_unitario | currency: 'EUR' }}</td>
+              <td [width]="150">{{ producto.precio_total | currency: 'EUR' }}</td>
+              <td [width]="150">{{ producto.descuento * 100 }}%</td>
+              <td [width]="150">{{ producto.impuesto * 100 }}%</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+    </div>
+</main>
