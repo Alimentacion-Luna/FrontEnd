@@ -16,14 +16,15 @@ export class ListadoPedidosComponent {
 
   constructor(private router: Router, private funcs: FuncsService) {
     // verificar que sea un usuario registrado
+    /*
     funcs.getLoggedInUser().then(res => {
       if (res == null) {
         this.router.navigate(['/login']);
       } else {
         this.loggedInUser = res;
-        this.cargarPedidos();
       }
-    });
+    });*/
+    this.cargarPedidos();
   }
 
   async logout(): Promise<void> {

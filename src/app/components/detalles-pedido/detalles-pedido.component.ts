@@ -1,15 +1,4 @@
-<<<<<<< HEAD
-import { Component } from '@angular/core';
 
-@Component({
-  selector: 'app-detalles-pedido',
-  imports: [],
-  templateUrl: './detalles-pedido.component.html',
-  styleUrl: './detalles-pedido.component.css'
-})
-export class DetallesPedidoComponent {
-
-=======
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FuncsService } from '../../services/funcs.service';
@@ -22,8 +11,8 @@ import { CurrencyPipe, NgClass, NgFor } from '@angular/common';
   styleUrls: ['./detalles-pedido.component.css']
 })
 export class DetallesPedidoComponent implements OnInit {
-  pedido: any = {}; 
-  productos: any[] = []; 
+  pedido: any = {};
+  productos: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -67,5 +56,4 @@ export class DetallesPedidoComponent implements OnInit {
     ];
 
   }
->>>>>>> c9b78cdc99046caddc616d438d4e5190223cbd46
 }

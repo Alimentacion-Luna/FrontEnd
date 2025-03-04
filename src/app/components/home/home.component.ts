@@ -13,6 +13,7 @@ export class HomeComponent {
   loggedInUser: any = null;
 
   constructor(private router: Router, private funcs: FuncsService) {
+    /*
     funcs.getLoggedInUser().then(
       res => {
         if (res == null)
@@ -20,7 +21,7 @@ export class HomeComponent {
 
         this.loggedInUser = res;
       },
-    );
+    );*/
   }
 
   async logout(): Promise<void> {
