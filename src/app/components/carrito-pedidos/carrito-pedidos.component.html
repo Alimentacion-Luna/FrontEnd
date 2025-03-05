@@ -1,5 +1,5 @@
-
 <main class="main">
+
 
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h1 class="textoRosa">
@@ -14,49 +14,59 @@
 
     <div class="ordenBotones">
 
+      <div class="botonEspacio">
 
-      <div class="row h-75 d-flex align-items-center justify-content-center ms-5">
+        <div class="row">
+          <div class="botonEstilo">
+            <button type="button" class="botonOpcion w-75 h-75 btn box-shadow-boton btn-primary btn-lg">
+              <img src="shopping-cart.png" height="50px">
+            </button>
+          </div>
 
-        <div class="col-sm-4 col-xs-6 bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
-          <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
-            <img src="shopping-cart.png" height="50px">
-          </button>
-        </div>
+          <div class="botonEstilo">
+            <button type="button" class="botonOpcion w-75 h-75 btn box-shadow-boton btn-primary btn-lg">
+              <img src="table.png" height="50px">
+            </button>
+          </div>
 
-        <div class="col-sm-4 col-xs-6 bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
-          <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
-            <img src="table.png" height="50px">
-          </button>
-        </div>
+          <div class="botonEstilo">
+            <button type="button" class="botonOpcion w-75 h-75 btn box-shadow-boton btn-primary btn-lg">
+              <img src="building-store.png" height="50px">
+            </button>
+          </div>
 
-        <div class="col-sm-4 col-xs-6 bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
-          <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
-            <img src="building-store.png" height="50px">
-          </button>
-        </div>
+          <div class="botonEstilo">
+            <button type="button" class="botonOpcion w-75 h-75 btn box-shadow-boton btn-primary btn-lg">
+              <img src="credit-card.png" height="50px">
+            </button>
+          </div>
 
-        <div class="col-sm-4 col-xs-6 bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
-          <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
-            <img src="credit-card.png" height="50px">
-          </button>
-        </div>
+          <div class="botonEstilo">
+            <button type="button" class="botonOpcion w-75 h-75 btn box-shadow-boton btn-primary btn-lg">
+              <img src="device-desktop-cog.png" height="50px">
+            </button>
+          </div>
 
-        <div class="col-sm-4 col-xs-6 bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
-          <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
-            <img src="device-desktop-cog.png" height="50px">
-          </button>
-        </div>
+          <div class="botonEstilo" >
+            <button type="button" class="botonOpcion w-75 h-75 btn box-shadow-boton btn-primary btn-lg">
+              <img src="settings.png" height="50px">
+            </button>
+          </div>
 
-        <div class="col-sm-4 col-xs-6 bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
-          <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
-            <img src="settings.png" height="50px">
-          </button>
-        </div>
+          <div class="botonEstilo" >
+            <button type="button" class="botonOpcion w-75 h-75 btn box-shadow-boton btn-primary btn-lg">
+              <img src="receipt.png" height="50px">
+            </button>
+          </div>
 
-        <div class="col-sm-4 col-xs-6 bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
-          <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
-            <img src="receipt.png" height="50px">
-          </button>
+          <div class="botonEstilo">
+            <button type="button" class="botonOpcion w-75 h-75 btn box-shadow-boton btn-primary btn-lg">
+              <img src="plus.png" height="50px">
+            </button>
+          </div>
+
+
+
         </div>
 
       </div>
@@ -65,35 +75,40 @@
     </div>
 
 
-    <div>
-      <tr class="tablaCuerpo">
-        <td [width]="150">Producto</td>
-        <td [width]="150">Cantidad</td>
-        <td [width]="150">Descuento</td>
-        <td [width]="150">Impuesto</td>
-        <td [width]="150">Precio Unitario</td>
-        <td [width]="150">Precio Total</td>
+    <div class=" box-shadow-atributos-listado">
+      <tr class="tablaCuerpo tablaAtributos">
+        <td class="textoAtributosTabla">Producto</td>
+        <td class="textoAtributosTabla">Cantidad</td>
+        <td class="textoAtributosTabla">Descuento</td>
+        <td class="textoAtributosTabla">Impuesto</td>
+        <td class="textoAtributosTabla">Precio Unitario</td>
+        <td class="textoAtributosTabla">Precio Total</td>
       </tr>
     </div>
 
     <!-- Tabla del carrito -->
-    <div class="tablaListado">
-      <tbody class="tablaCuerpo">
-          <table>
+    <div class="tablaListado  box-shadow-listado">
+      <table class="tablaCuerpo">
+        <tbody>
 
-            <tr *ngFor="let producto of productos">
-              <td [width]="150">{{ producto.nombre }}</td>
-              <td [width]="150">{{ producto.cantidad }}</td>
-              <td [width]="150">{{ producto.descuento * 100 }}%</td>
-              <td [width]="150">{{ producto.impuesto * 100 }}%</td>
-              <td [width]="150">{{ producto.precio_unitario | currency: 'EUR' }}</td>
-              <td [width]="150">{{ producto.precio_total | currency: 'EUR' }}</td>
-            </tr>
-          </table>
-      </tbody>
+              <tr *ngFor="let producto of productos">
+                <td [width]="150">{{ producto.nombre }}</td>
+                <td [width]="150">{{ producto.cantidad }}</td>
+                <td [width]="150">{{ producto.descuento * 100 }}%</td>
+                <td [width]="150">{{ producto.impuesto * 100 }}%</td>
+                <td [width]="150">{{ producto.precio_unitario | currency: 'EUR' }}</td>
+                <td [width]="150">{{ producto.precio_total | currency: 'EUR' }}</td>
+              </tr>
+        </tbody>
+      </table>
 
     </div>
+
+
   </div>
 
 </main>
+
+
+
 
