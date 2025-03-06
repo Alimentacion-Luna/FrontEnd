@@ -20,6 +20,7 @@ export class AppComponent {
 
 
   isLogged(): Boolean {
+
     let respuesta: Boolean = false
 
     if (this.router.url !== "/login") {
