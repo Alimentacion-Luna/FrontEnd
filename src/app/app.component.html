@@ -16,7 +16,7 @@
       <button class="btn custom-btn mx-2">
         <img src="bell.png" alt="Notifications" class="icon-img">
       </button>
-      <button type="button" class="btn custom-btn user-btn mx-2" [ngbPopover]="logoutTemplate">
+      <button type="button" class="btn custom-btn user-btn mx-2" [ngbPopover]="logoutTemplate" [popoverTitle]="popTitle">
         <img src="patricio_putero.png" alt="User" class="rounded-circle user-img">
       </button>
     </div>
@@ -29,13 +29,19 @@
       <li class="sidebar-item"><a href="listado-pedidos">Listado de Pedidos</a></li>
       <li class="sidebar-item"><a href="construccion">Almacén</a></li>
       <li class="sidebar-item"><a href="construccion">Historial</a></li>
-      <li class="sidebar-item"><a href="construccion">Gatitos</a></li>
+      <li class="sidebar-item"><a href="construccion">Tienda</a></li>
+      <li class="sidebar-item"><a href="construccion">Detalles</a></li>
+      <li class="sidebar-item"><a href="construccion">Proveedores</a></li>
+      <li class="sidebar-item"><a href="construccion">Configuracion</a></li>
+      <li class="sidebar-item"><a href="construccion">Ayuda</a></li>
     </ul>
   </div>
 
   <ng-template #logoutTemplate>
     <button type="button" (click)="logout()" class="btn btn-primary">Cerrar sesión</button>
   </ng-template>
+
+  <ng-template #popTitle>Cuenta</ng-template>
 
 </div>
 

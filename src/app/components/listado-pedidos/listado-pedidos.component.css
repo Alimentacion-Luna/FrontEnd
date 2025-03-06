@@ -18,3 +18,18 @@
 .btn-primary {
   border-color: #c084fc;
 }
+
+.table thead th {
+  text-align: center;
+  width: 15%;
+}
+
+.table tbody td {
+
+  text-align: center;
+  width: 10%;
+}
+
+.texto {
+  color: #c084fc;
+}

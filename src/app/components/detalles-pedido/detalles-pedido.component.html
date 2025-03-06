@@ -34,13 +34,13 @@
       <table class="table">
         <thead class="thead-dark">
           <tr>
-            <th [width]="115"></th>
-            <th [width]="110">Producto</th>
-            <th [width]="110">Cantidad</th>
-            <th [width]="120">Precio Unitario (€)</th>
-            <th [width]="120">Precio Total (€)</th>
-            <th [width]="120">Descuento (%)</th>
-            <th [width]="150">Impuesto (%)</th>
+            <th >Nº Producto</th>
+            <th >Producto</th>
+            <th >Cantidad</th>
+            <th >Precio Unitario (€)</th>
+            <th >Precio Total (€)</th>
+            <th >Descuento (%)</th>
+            <th >Impuesto (%)</th>
           </tr>
         </thead>
         </table>
@@ -49,13 +49,13 @@
           <table class="table table-dark table-hover">
           <tbody>
             <tr *ngFor="let producto of productos">
-              <td [width]="150">{{ producto.id_producto }}</td>
-              <td [width]="150">{{ producto.nombre }}</td>
-              <td [width]="150">{{ producto.cantidad }}</td>
-              <td [width]="150">{{ producto.precio_unitario | currency: 'EUR' }}</td>
-              <td [width]="150">{{ producto.precio_total | currency: 'EUR' }}</td>
-              <td [width]="150">{{ producto.descuento * 100 }}%</td>
-              <td [width]="150">{{ producto.impuesto * 100 }}%</td>
+              <td >{{ producto.id_producto }}</td>
+              <td >{{ producto.nombre }}</td>
+              <td >{{ producto.cantidad }}</td>
+              <td >{{ producto.precio_unitario | currency: 'EUR' }}</td>
+              <td >{{ producto.precio_total | currency: 'EUR' }}</td>
+              <td >{{ producto.descuento * 100 }}%</td>
+              <td >{{ producto.impuesto * 100 }}%</td>
             </tr>
           </tbody>
         </table>
