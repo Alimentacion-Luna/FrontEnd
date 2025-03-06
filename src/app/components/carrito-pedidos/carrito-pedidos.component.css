@@ -1,3 +1,5 @@
+
+
 .main {
   margin-left: 260px;
   padding: 20px;
@@ -5,12 +7,21 @@
 }
 
 
-/*Colores de Botones*/
+
+/* Caja que contiene los datos de la pagina */
+.generalContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/*Colores de texto*/
 .textoRosa{
   color: #c084fc;
 }
 
-
+/*Botones*/
 .ordenBotones{
   display: flex;
   justify-content: center;
@@ -19,30 +30,50 @@
 
 }
 
-/* Caja que contiene los datos de la pagina */
-.generalContent{
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 30px;
-  padding: 10px;
+.box-shadow-boton {
+  background-color: #32363B;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 }
 
-/* Tabla de pedidos */
-.tablaListado{
-  margin-top: 20px;
+.botonEstilo{
+  width: 240px;  height: 208px; --bs-border-opacity: .0;
+}
 
+.botonEspacio{
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+.botonOpcion{
+  margin: 10px;
+  padding: 10px 20px;
+  /*border:none;*/
+}
+
+
+
+/* Tabla de pedidos */
+
+.tablaAtributos{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textoAtributosTabla{
+  flex-basis: 20%;
+  text-align: center;
+  color: #f0f0f0;
+  font-display: bold;
+  font-size: 20px;
 }
 
 .tablaCuerpo {
-
   border-collapse: collapse;
   width: 100%;
-
+  max-height: 100px;
   background-color: #32363b;
-
 }
 
 /*CSS de los datos de la tabla*/
@@ -56,7 +87,20 @@
 }
 
 
-/**/
+.tablaListado {
+  margin-top: 0px;
+  overflow-y: auto;
+  max-height: 135px;
+  border-bottom-left-radius: 10px;
+
+}
+
+/*Modificaciones de Boostrap*/
+
+.row{
+  align-items: center;
+}
+
 
 .box-shadow {
   background-color: #272b30;
@@ -64,11 +108,22 @@
   border-radius: 10px;
 }
 
-.tablaListado {
-  overflow-y: auto;
-  max-height: 400px;
+/*
+.box-shadow-atributos-listado {
+  background-color: #32363B;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
 }
+
+.box-shadow-listado {
+  background-color: #32363B;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+*/
 
 .btn-primary {
   border-color: #c084fc;
 }
+
+
