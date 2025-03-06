@@ -1,84 +1,68 @@
+<main class="main">
 
-<body>
+  <div class="generalContent box-shadow">
+    <div class="ordenBotones">
+        <div class="row">
 
-  <button class="buttonLogin" (click)="logout()">Logout</button>
+          <div class="botonEstilo">
+            <button type="button" class="botonOpcion btn box-shadow-boton btn-primary btn-lg" onclick="window.location.href = 'listado-pedidos';">
+              <img src="shopping-cart.png" height="120px" width="120px" style="margin: 0 auto;">
+              <label class="textoRosa">Listado de Pedidos</label>
+            </button>
+          </div>
 
+          <div class="botonEstilo">
+            <button type="button" class="botonOpcion btn box-shadow-boton btn-primary btn-lg" onclick="window.location.href = 'construccion';">
+              <img src="table.png"  height="120px" width="120px" style="margin: 0 auto;">
+              <label class="textoRosa">Almacen</label>
+            </button>
+          </div>
 
-  <div class="container vh-100 align-items-center justify-content-center p-5">
+          <div class="botonEstilo">
+            <button type="button" class="botonOpcion btn box-shadow-boton btn-primary btn-lg" onclick="window.location.href = 'construccion';">
+              <img src="credit-card.png" height="120px" width="120px" style="margin: 0 auto;">
+              <label class="textoRosa">Historial</label>
+            </button>
+          </div>
 
-    <div class="row bg-primary shadow-lg h-75 d-flex align-items-center justify-content-center ms-5">
-      <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
-        <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
-          <img src="shopping-cart.png" height="50px">
-        </button>
+          <div class="botonEstilo">
+            <button type="button" class="botonOpcion btn box-shadow-boton btn-primary btn-lg" onclick="window.location.href = 'construccion';">
+              <img src="building-store.png" height="120px" width="120px" style="margin: 0 auto;">
+              <label class="textoRosa">Tienda</label>
+            </button>
+          </div>
+
+          <div class="botonEstilo">
+            <button type="button" class="botonOpcion btn box-shadow-boton btn-primary btn-lg" onclick="window.location.href = 'construccion';">
+              <img src="device-desktop-cog.png" height="120px" width="120px" style="margin: 0 auto;">
+              <label class="textoRosa">Detalles</label>
+            </button>
+          </div>
+
+          <div class="botonEstilo" >
+            <button type="button" class="botonOpcion btn box-shadow-boton btn-primary btn-lg" onclick="window.location.href = 'construccion';">
+              <img src="receipt.png" height="120px" width="120px" style="margin: 0 auto;">
+              <label class="textoRosa">Proveedores</label>
+            </button>
+          </div>
+
+          <div class="botonEstilo" >
+            <button type="button" class="botonOpcion btn box-shadow-boton btn-primary btn-lg" onclick="window.location.href = 'construccion';">
+              <img src="settings.png" height="120px" width="120px" style="margin: 0 auto;">
+              <label class="textoRosa">Configuracion</label>
+            </button>
+          </div>
+
+          <div class="botonEstilo">
+            <button type="button" class="botonOpcion btn box-shadow-boton btn-primary btn-lg" onclick="window.location.href = 'construccion';">
+              <img src="plus.png" height="120px" width="120px" style="margin: 0 auto;">
+              <label class="textoRosa">Ayuda</label>
+            </button>
+          </div>
+
+        </div>
       </div>
-  
-      <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
-        <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
-          <img src="table.png" height="50px">
-        </button>
-      </div>
-  
-      <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
-        <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
-          <img src="building-store.png" height="50px">
-        </button>
-      </div>
-  
-      <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
-        <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
-          <img src="credit-card.png" height="50px">
-        </button>
-      </div>
-  
-      <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
-        <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
-          <img src="device-desktop-cog.png" height="50px">
-        </button>
-      </div>
-
-      <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
-        <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
-          <img src="settings.png" height="50px">
-        </button>
-      </div>
-
-      <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
-        <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
-          <img src="receipt.png" height="50px">
-        </button>
-      </div>
-
-      <div class="col-sm-4 col-xs-6 card border bg-transparent d-flex justify-content-center" style="width: 18rem;  height: 13rem; --bs-border-opacity: .0;">
-        <button type="button" class="w-100 h-100 btn btn-primary btn-lg">
-          <img src="plus.png" height="50px">
-        </button>
-      </div>
-
-      
-
-      
-
-      
-    </div>
-
-
-    
-
-
-  
-
-
-
-    
-
-
-    
-
   </div>
-    
-</body>
 
-
-
+</main>
 
