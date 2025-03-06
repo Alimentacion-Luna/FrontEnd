@@ -22,7 +22,7 @@ export class DalService {
     return this.http.get<Pedido[]>(API_URL + "/pedidos")
   }
 
-  getProductosProveedor(id: string): Observable<Producto[]> {
+  getProductosProveedor(id: number): Observable<Producto[]> {
     return this.http.get<Producto[]>(API_URL + `/proveedores/${id}/productos`)
   }
 }

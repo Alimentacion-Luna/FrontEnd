@@ -1,37 +1,44 @@
 export interface Proveedor {
-    nombre: string;
-    telefono: number;
-    correo: string;
+  idProveedor: number;
+  nombre: string;
+  telefono: number;
+  correo: string;
 }
 
 export interface ProveedorConProductos extends Proveedor {
-    offset: number;
-    productos: Producto[];
+  offset: number;
+  productos: Producto[];
 }
 
 export interface Pedido {
-    idPedido: number;
-    fechaPedido: Date;
-    precioTotal: number;
-    estado: string;
-    proveedor: Proveedor;
-    detalles: DetallesPedido[];
+  idPedido: number;
+  fechaPedido: Date;
+  precioTotal: number;
+  estado: string;
+  proveedor: Proveedor;
+  detalles: DetallesPedido[];
 }
 
 export interface DetallesPedido {
-    nombreProducto: string;
-    cantidad: number;
-    precioUnitario: number;
-    precioCantidad: number;
-    descuento: number;
-    impuesto: number;
+  nombreProducto: string;
+  cantidad: number;
+  precioUnitario: number;
+  precioCantidad: number;
+  descuento: number;
+  impuesto: number;
+}
+
+export interface Tipo {
+  id: number;
+  nombre: string;
 }
 
 export interface Producto {
-    id: number;
-    nombre: string;
-    descripcion: string;
-    precio: number;
-    imagen: string;
-    categoria: string;
+  idProducto: number;
+  nombreProd: string;
+  descripcion: string;
+  precio: number;
+  tipo: Tipo;
+  impuesto: number;
+  descuento: number;
 }

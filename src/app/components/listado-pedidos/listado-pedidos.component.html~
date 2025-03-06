@@ -1,19 +1,19 @@
 <main class="main">
   <div class="d-flex justify-content-between align-items-center mb-3">
-    <h1>Listado de Pedidos</h1>
-    <button class="btn btn-primary" [routerLink]="['/carrito-pedidos']" >Agregar Pedido</button>
+    <h1 class="texto">Listado de Pedidos</h1>
+    <button class="btn btn-primary" [routerLink]="['/carrito-pedidos']">Agregar Pedido</button>
   </div>
 
   <div class="bg-dark p-4 rounded box-shadow">
     <table class="table">
       <thead class="thead-dark">
         <tr>
-          <!--<th class="align-middle" [width]="180"></th>-->
-          <th class="align-middle" [width]="280">Proveedor</th>
-          <th class="align-middle" [width]="275">Fecha Pedido</th>
-          <th class="align-middle" [width]="285">Precio (€)</th>
-          <th class="align-middle">Estado</th>
-          <th class="align-middle"></th>
+          <th>Nº Listado</th>
+          <th>Proveedor</th>
+          <th>Fecha Pedido</th>
+          <th>Precio (€)</th>
+          <th>Estado</th>
+          <th>Detalles</th>
         </tr>
       </thead>
     </table>
@@ -21,16 +21,15 @@
     <div class="table-body-scroll">
       <table class="table table-dark table-hover">
         <tbody>
-          <tr *ngFor="let pedido of pedidos | async">
-            <!--<td class="align-middle" [width]="90">{{ pedido. }}</td>-->
-            <td class="align-middle" [width]="120">{{ pedido.proveedor }}</td>
-            <td class="align-middle" [width]="120">{{ pedido.fechaPedido }}</td>
-            <td class="align-middle" [width]="120">{{ pedido.precioTotal | currency: 'EUR' }}</td>
-            <td class="align-middle" [width]="120">{{ pedido.estado }}</td>
-            <td class="align-middle" [width]="120">
-              <button class="btn btn-primary" [routerLink]="['/detalles-pedido', pedido.idPedido]">Detalles</button>
+          <tr *ngFor="let pedido of pedidos">
+            <td class="align-middle">{{ pedido.id_pedido }}</td>
+            <td class="align-middle">{{ pedido.id_proveedor }}</td>
+            <td class="align-middle">{{ pedido.fecha_pedido }}</td>
+            <td class="align-middle">{{ pedido.precio_total | currency: 'EUR' }}</td>
+            <td class="align-middle">{{ pedido.estado }}</td>
+            <td class="align-middle">
+              <button class="btn btn-primary" [routerLink]="['/detalles-pedido', pedido.id_pedido]">Detalles</button>
             </td>
-
           </tr>
         </tbody>
       </table>

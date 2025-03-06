@@ -12,3 +12,4 @@ export const account = new Account(client);
 export {ID} from 'appwrite';
 
 export const API_URL: String = "https://alimentacionesluna.azurewebsites.net/api";
+export const WEB_URL: String = "https://alimentacionesluna.azurewebsites.net/";
