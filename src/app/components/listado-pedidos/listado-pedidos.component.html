@@ -1,17 +1,17 @@
 <main class="main">
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h1>Listado de Pedidos</h1>
-    <button class="btn btn-primary">Agregar Pedido</button>
+    <button class="btn btn-primary" [routerLink]="['/carrito-pedidos']" >Agregar Pedido</button>
   </div>
 
   <div class="bg-dark p-4 rounded box-shadow">
     <table class="table">
       <thead class="thead-dark">
         <tr>
-          <th class="align-middle" [width]="127"></th>
-          <th class="align-middle" [width]="220">Proveedor</th>
-          <th class="align-middle" [width]="210">Fecha Pedido</th>
-          <th class="align-middle" [width]="215">Precio (€)</th>
+          <th class="align-middle" [width]="180"></th>
+          <th class="align-middle" [width]="280">Proveedor</th>
+          <th class="align-middle" [width]="275">Fecha Pedido</th>
+          <th class="align-middle" [width]="285">Precio (€)</th>
           <th class="align-middle">Estado</th>
           <th class="align-middle"></th>
         </tr>
@@ -30,7 +30,7 @@
             <td class="align-middle" [width]="120">
               <button class="btn btn-primary" [routerLink]="['/detalles-pedido', pedido.id_pedido]">Detalles</button>
             </td>
-            
+
           </tr>
         </tbody>
       </table>
