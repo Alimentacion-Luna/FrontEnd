@@ -5,13 +5,14 @@
   </div>
 
   <div class="generalContent box-shadow">
-    <div class="mb-4">
-      <select class="form-select" (change)="onProveedorChange($event)">
+    <div class="mb-4 d-flex justify-content-between align-items-center">
+      <select class="form-select" (change)="onProveedorChange($event)" [disabled]="proveedorBloqueado">
         <option value="">Seleccione un proveedor</option>
         <option *ngFor="let proveedor of proveedores" [value]="proveedor.nombre">
           {{ proveedor.nombre }}
         </option>
       </select>
+      <button type="button" class="aaa btn btn-primary ms-3" (click)="agregarPedido()" >Agregar Pedido</button>
     </div>
 
     <div class="productos-container">
@@ -30,7 +31,6 @@
     <h1 class="text-lista">Listado Productos</h1>
     <div class="box-shadow-atributos-listado mt-4">
       <table class="tablaCuerpo">
-
         <tr class="tablaCuerpo tablaAtributos">
           <td class="textoAtributosTabla">Producto</td>
           <td class="textoAtributosTabla">Cantidad</td>
@@ -40,7 +40,6 @@
           <td class="textoAtributosTabla">Precio Total</td>
           <td class="textoAtributosTabla">Eliminar</td>
         </tr>
-
       </table>
     </div>
 

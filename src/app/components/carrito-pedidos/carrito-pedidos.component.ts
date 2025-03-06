@@ -37,6 +37,8 @@ export class CarritoPedidosComponent {
   productosProveedor: Producto[] = [];
   carrito: ProductoCarrito[] = [];
   proveedorSeleccionado: string = '';
+  proveedorBloqueado: boolean = false;
+  
 
   constructor(private router: Router, private funcs: FuncsService) {
     this.funcs.getLoggedInUser().then(res => {
@@ -130,6 +132,7 @@ export class CarritoPedidosComponent {
         precio_total: producto.precio * (1 - producto.descuento) * (1 + producto.impuesto)
       };
       this.carrito.push(productoCarrito);
+      this.proveedorBloqueado = true;
     }
   }
 
@@ -148,9 +151,11 @@ export class CarritoPedidosComponent {
 
   // Función para manejar el cambio de proveedor del select de proveedores
   onProveedorChange(event: Event): void {
-    const target = event.target as HTMLSelectElement;
-    this.proveedorSeleccionado = target.value;
-    this.cargarProductosPorProveedor();
+    if(!this.proveedorBloqueado) { // Si no hay nada en el carrito deja cambiar de proveedor
+      const target = event.target as HTMLSelectElement;
+      this.proveedorSeleccionado = target.value;
+      this.cargarProductosPorProveedor();
+    }
   }
 
   // Función para eliminar un producto del carrito cuando se pulse el botón "Eliminar"
@@ -158,6 +163,14 @@ export class CarritoPedidosComponent {
     const index = this.carrito.indexOf(producto);
     if (index !== -1) {
       this.carrito.splice(index, 1);
+      if (this.carrito.length === 0) {
+        this.proveedorBloqueado = false; // Desbloqueamos el select si el carrito está vacío
+      }
     }
   }
+
+  agregarPedido(): void {
+    this.router.navigate(['/detalles-pedido']);
+  }
 }
+
