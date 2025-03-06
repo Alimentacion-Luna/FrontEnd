@@ -1,34 +1,75 @@
-h1.title{
-  text-align: center;
-  color: rgb(76, 43, 223);
-}
 
 
-h3.greeting{
-  text-align: center;
-  color: rgb(76, 43, 223);
-
+.main {
+  margin-left: 260px;
+  padding: 20px;
+  padding-top: 80px;
 }
 
 
 
-button.buttonLogin{
-  width: 200px;
-  height: 50px;
-  background-color: #9a7d94;
-  color: white;
+/* Caja que contiene los datos de la pagina */
+.generalContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/*Colores de texto*/
+.textoRosa{
+  color: #c084fc;
+}
+
+/*Botones*/
+.ordenBotones{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+
+}
+
+.box-shadow-boton {
+  background-color: #32363B;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  align-self: center;
 }
 
-body{
-  background-color: #313131;
+.botonEstilo{
+  width: 240px;  height: 208px; --bs-border-opacity: .0;
+}
+
+.botonEspacio{
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+.botonOpcion{
+  margin: 10px;
+  padding: 10px 20px;
+  /*border:none;*/
 }
 
 
-.border {
-  --bs-border-opacity: 1;
-  border-color: rgba(var(--bs-success-rgb), var(--bs-border-opacity)) !important;
+
+
+/*Modificaciones de Boostrap*/
+
+.row{
+  align-items: center;
 }
 
-.top-buffer { margin-top:20px; }
+
+.box-shadow {
+  background-color: #272b30;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+
+.btn-primary {
+  border-color: #c084fc;
+}
+
+
