@@ -19,15 +19,27 @@
 /*Colores de texto*/
 .textoRosa{
   color: #c084fc;
+  font-size: 30px;
 }
 
 /*Botones*/
 .ordenBotones{
   display: flex;
-  justify-content: center;
-  align-items: center;
   margin-bottom: 20px;
+  margin-top: 20px;
+  max-width: 1600px;
+  margin-left: 120px;
+}
 
+.botonOpcion{
+  width: 320px;  height: 320px;
+  margin: 10px;
+  padding: 10px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /*border:none;*/
 }
 
 .box-shadow-boton {
@@ -37,21 +49,8 @@
 }
 
 .botonEstilo{
-  width: 240px;  height: 208px; --bs-border-opacity: .0;
+  width: 350px;  height: 350px; --bs-border-opacity: .0;
 }
-
-.botonEspacio{
-  margin-left: 50px;
-  margin-top: 20px;
-}
-
-.botonOpcion{
-  margin: 10px;
-  padding: 10px 20px;
-  /*border:none;*/
-}
-
-
 
 
 /*Modificaciones de Boostrap*/
