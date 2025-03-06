@@ -27,6 +27,6 @@ export class ConstruccionPageComponent {
 
     async logout(): Promise<void> {
       await account.deleteSession('current');
-      this.router.navigate(['/login']);
+      await this.router.navigate(['/login']);
     }
 }

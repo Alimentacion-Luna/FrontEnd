@@ -6,12 +6,16 @@
 
   <div class="generalContent box-shadow">
     <div class="mb-4">
-      <select class="form-select" (change)="onProveedorChange($event)">
+      <select class="form-select" [class.hidden]="ocultarSelector" (change)="onProveedorChange($event)">
         <option value="">Seleccione un proveedor</option>
         <option *ngFor="let proveedor of proveedores | async" [value]="proveedor.idProveedor">
           {{ proveedor.nombre }}
         </option>
       </select>
+      <div class="d-flex align-items-center" [class.hidden]="ocultarProveedor">
+        <h2 class="textoRosa m-4">{{ proveedorSeleccionado }}</h2>
+        <button class="btn btn-primary h-50" (click)="cambiarProveedor()">Cambiar</button>
+      </div>
     </div>
 
     <div class="productos-container">
@@ -47,21 +51,21 @@
     <div class="tablaListado box-shadow-listado">
       <table class="tablaCuerpo">
         <tbody>
-        <tr *ngFor="let producto of carrito">
-          <td [width]="150">{{ producto.nombreProd }}</td>
-          <td [width]="150">
-            <input type="number" min="1" [value]="producto.cantidad"
-                   (input)="actualizarCantidad(producto, $event)"
-                   class="cantidad-input"/>
-          </td>
-          <td [width]="150">{{ producto.descuento }}%</td>
-          <td [width]="150">{{ producto.impuesto }}%</td>
-          <td [width]="150">{{ producto.precio_unitario | currency: 'EUR' }}</td>
-          <td [width]="150">{{ producto.precio_total | currency: 'EUR' }}</td>
-          <td [width]="150">
-            <button class="btn btn-danger" (click)="eliminarDelCarrito(producto)">Eliminar</button>
-          </td>
-        </tr>
+          <tr *ngFor="let producto of carrito">
+            <td [width]="150">{{ producto.nombreProd }}</td>
+            <td [width]="150">
+              <input type="number" min="1" [value]="producto.cantidad"
+                     (input)="actualizarCantidad(producto, $event)"
+                     class="cantidad-input"/>
+            </td>
+            <td [width]="150">{{ producto.descuento }}%</td>
+            <td [width]="150">{{ producto.impuesto }}%</td>
+            <td [width]="150">{{ producto.precio_unitario | currency: 'EUR' }}</td>
+            <td [width]="150">{{ producto.precio_total | currency: 'EUR' }}</td>
+            <td [width]="150">
+              <button class="btn btn-danger" (click)="eliminarDelCarrito(producto)">Eliminar</button>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

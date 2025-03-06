@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { FuncsService } from '../../services/funcs.service';
-import {account, API_URL, WEB_URL} from '../../../appwrite';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {FuncsService} from '../../services/funcs.service';
+import {account, WEB_URL} from '../../../appwrite';
 import {AsyncPipe, CurrencyPipe, NgFor} from '@angular/common';
 import {Producto, Proveedor} from '../../ent/dto';
 import {DalService} from '../../services/dal.service';
-import {Observable, of} from 'rxjs';
+import {map, Observable, of} from 'rxjs';
 
 // Interfaces para mostrar los datos
 interface ProductoCarrito extends Producto {
@@ -27,6 +27,10 @@ export class CarritoPedidosComponent {
   carrito: ProductoCarrito[] = [];
   proveedorSeleccionado: string = '';
 
+  protected readonly WEB_URL = WEB_URL;
+  ocultarProveedor: boolean = true;
+  ocultarSelector: boolean = false;
+
   constructor(private router: Router, private funcs: FuncsService, private dal: DalService) {
     this.funcs.getLoggedInUser().then(res => {
       if (res == null) {
@@ -40,7 +44,7 @@ export class CarritoPedidosComponent {
 
   async logout(): Promise<void> {
     await account.deleteSession('current');
-    this.router.navigate(['/login']);
+    await this.router.navigate(['/login']);
   }
 
   cargarProveedores(): void {
@@ -50,6 +54,7 @@ export class CarritoPedidosComponent {
   cargarProductos(id: number) {
     this.productosProveedor = this.dal.getProductosProveedor(id);
   }
+
   agregarAlCarrito(producto: Producto): void {
     // Verificar si el producto ya está en el carrito
     const productoExistente = this.carrito.find(p => p.idProducto === producto.idProducto);
@@ -72,8 +77,7 @@ export class CarritoPedidosComponent {
   // Función para actualizar la cantidad de un producto en el carrito seleccionando el input
   actualizarCantidad(producto: ProductoCarrito, event: Event): void {
     const target = event.target as HTMLInputElement;
-    const nuevaCantidad = parseInt(target.value, 10) || 1;
-    producto.cantidad = nuevaCantidad;
+    producto.cantidad = parseInt(target.value, 10) || 1;
     this.actualizarPrecioTotal(producto);
   }
 
@@ -85,9 +89,28 @@ export class CarritoPedidosComponent {
   // Función para manejar el cambio de proveedor del select de proveedores
   onProveedorChange(event: Event): void {
     const target = event.target as HTMLSelectElement;
-    this.proveedorSeleccionado = target.value;
-    console.log(this.proveedorSeleccionado)
-    this.cargarProductos(1);
+
+    // Buscar nombre en el array de proveedores por su ID
+    this.proveedores.pipe(
+      map(proveedores =>
+        proveedores.find(p =>
+          p.idProveedor === parseInt(target.value, 10)
+        )
+      )
+    ).subscribe(p => {
+        this.proveedorSeleccionado = p!.nombre;
+        this.cargarProductos(p!.idProveedor);
+        this.ocultarProveedor = false;
+        this.ocultarSelector = true;
+      }
+    );
+  }
+
+  cambiarProveedor(): void {
+    this.ocultarProveedor = true;
+    this.ocultarSelector = false;
+    this.carrito = [];
+    this.productosProveedor = of([]);
   }
 
   // Función para eliminar un producto del carrito cuando se pulse el botón "Eliminar"
@@ -98,6 +121,4 @@ export class CarritoPedidosComponent {
     }
   }
 
-  protected readonly API_URL = API_URL;
-  protected readonly WEB_URL = WEB_URL;
 }
