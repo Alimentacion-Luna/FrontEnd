@@ -1,114 +1,67 @@
 <main class="main">
-
-
   <div class="d-flex justify-content-between align-items-center mb-3">
-    <h1 class="textoRosa">
-      Carrito de Pedidos
-    </h1>
-
+    <h1 class="textoRosa">Carrito de Pedidos</h1>
     <button class="btn btn-primary" onclick="history.back()">Volver</button>
   </div>
 
-
   <div class="generalContent box-shadow">
+    <div class="mb-4">
+      <select class="form-select" (change)="onProveedorChange($event)">
+        <option value="">Seleccione un proveedor</option>
+        <option *ngFor="let proveedor of proveedores" [value]="proveedor.nombre">
+          {{ proveedor.nombre }}
+        </option>
+      </select>
+    </div>
 
-    <div class="ordenBotones">
-
-      <div class="botonEspacio">
-
-        <div class="row">
-          <div class="botonEstilo">
-            <button type="button" class="botonOpcion w-75 h-75 btn box-shadow-boton btn-primary btn-lg">
-              <img src="shopping-cart.png" height="50px">
-            </button>
-          </div>
-
-          <div class="botonEstilo">
-            <button type="button" class="botonOpcion w-75 h-75 btn box-shadow-boton btn-primary btn-lg">
-              <img src="table.png" height="50px">
-            </button>
-          </div>
-
-          <div class="botonEstilo">
-            <button type="button" class="botonOpcion w-75 h-75 btn box-shadow-boton btn-primary btn-lg">
-              <img src="building-store.png" height="50px">
-            </button>
-          </div>
-
-          <div class="botonEstilo">
-            <button type="button" class="botonOpcion w-75 h-75 btn box-shadow-boton btn-primary btn-lg">
-              <img src="credit-card.png" height="50px">
-            </button>
-          </div>
-
-          <div class="botonEstilo">
-            <button type="button" class="botonOpcion w-75 h-75 btn box-shadow-boton btn-primary btn-lg">
-              <img src="device-desktop-cog.png" height="50px">
-            </button>
-          </div>
-
-          <div class="botonEstilo" >
-            <button type="button" class="botonOpcion w-75 h-75 btn box-shadow-boton btn-primary btn-lg">
-              <img src="settings.png" height="50px">
-            </button>
-          </div>
-
-          <div class="botonEstilo" >
-            <button type="button" class="botonOpcion w-75 h-75 btn box-shadow-boton btn-primary btn-lg">
-              <img src="receipt.png" height="50px">
-            </button>
-          </div>
-
-          <div class="botonEstilo">
-            <button type="button" class="botonOpcion w-75 h-75 btn box-shadow-boton btn-primary btn-lg">
-              <img src="plus.png" height="50px">
-            </button>
-          </div>
-
-
-
+    <div class="productos-container">
+      <div class="productos-scroll">
+        <div *ngFor="let producto of productosProveedor">
+          <button type="button" class="btn producto-btn box-shadow-boton btn-primary"
+                  (click)="agregarAlCarrito(producto)">
+            <img [src]="producto.imagen" height="40px" class="mb-2">
+            <div>{{ producto.nombre }}</div>
+            <div>{{ producto.precio | currency: 'EUR' }}</div>
+          </button>
         </div>
-
       </div>
-
-
     </div>
 
+    <h1 class="text-lista">Listado Productos</h1>
+    <div class="box-shadow-atributos-listado mt-4">
+      <table class="tablaCuerpo">
 
-    <div class=" box-shadow-atributos-listado">
-      <tr class="tablaCuerpo tablaAtributos">
-        <td class="textoAtributosTabla">Producto</td>
-        <td class="textoAtributosTabla">Cantidad</td>
-        <td class="textoAtributosTabla">Descuento</td>
-        <td class="textoAtributosTabla">Impuesto</td>
-        <td class="textoAtributosTabla">Precio Unitario</td>
-        <td class="textoAtributosTabla">Precio Total</td>
-      </tr>
+        <tr class="tablaCuerpo tablaAtributos">
+          <td class="textoAtributosTabla">Producto</td>
+          <td class="textoAtributosTabla">Cantidad</td>
+          <td class="textoAtributosTabla">Descuento</td>
+          <td class="textoAtributosTabla">Impuesto</td>
+          <td class="textoAtributosTabla">Precio Unitario</td>
+          <td class="textoAtributosTabla">Precio Total</td>
+          <td class="textoAtributosTabla">Eliminar</td>
+        </tr>
+
+      </table>
     </div>
 
-    <!-- Tabla del carrito -->
-    <div class="tablaListado  box-shadow-listado">
+    <div class="tablaListado box-shadow-listado">
       <table class="tablaCuerpo">
         <tbody>
-
-              <tr *ngFor="let producto of productos">
-                <td [width]="150">{{ producto.nombre }}</td>
-                <td [width]="150">{{ producto.cantidad }}</td>
-                <td [width]="150">{{ producto.descuento * 100 }}%</td>
-                <td [width]="150">{{ producto.impuesto * 100 }}%</td>
-                <td [width]="150">{{ producto.precio_unitario | currency: 'EUR' }}</td>
-                <td [width]="150">{{ producto.precio_total | currency: 'EUR' }}</td>
-              </tr>
+          <tr *ngFor="let producto of carrito">
+            <td [width]="150">{{ producto.nombre }}</td>
+            <td [width]="150">
+              <input type="number" min="1" [value]="producto.cantidad" 
+                     (input)="actualizarCantidad(producto, $event)" 
+                     class="cantidad-input" />
+            </td>
+            <td [width]="150">{{ producto.descuento * 100 }}%</td>
+            <td [width]="150">{{ producto.impuesto * 100 }}%</td>
+            <td [width]="150">{{ producto.precio_unitario | currency: 'EUR' }}</td>
+            <td [width]="150">{{ producto.precio_total | currency: 'EUR' }}</td>
+            <td [width]="150"><button class="btn btn-danger" (click)="eliminarDelCarrito(producto)">Eliminar</button></td>
+          </tr>
         </tbody>
       </table>
-
     </div>
-
-
   </div>
-
 </main>
-
-
-
-
