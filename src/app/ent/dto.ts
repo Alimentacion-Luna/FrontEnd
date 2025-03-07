@@ -24,7 +24,7 @@ export interface DetallesPedido {
   cantidad: number;
   precioUnitario: number;
   precioCantidad: number;
-  descuento: number;
+  //descuento: number;
   impuesto: number;
 }
 
@@ -40,5 +40,5 @@ export interface Producto {
   precio: number;
   tipo: Tipo;
   impuesto: number;
-  descuento: number;
+  //descuento: number;
 }

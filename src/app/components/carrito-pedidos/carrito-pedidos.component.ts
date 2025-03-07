@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import {FuncsService} from '../../services/funcs.service';
 import {account, WEB_URL} from '../../../appwrite';
 import {AsyncPipe, CurrencyPipe, NgFor} from '@angular/common';
-import {Producto, Proveedor} from '../../ent/dto';
+import {DetallesPedido, Pedido, Producto, Proveedor} from '../../ent/dto';
 import {DalService} from '../../services/dal.service';
 import {map, Observable, of} from 'rxjs';
 
@@ -24,7 +24,9 @@ export class CarritoPedidosComponent {
   proveedores: Observable<Proveedor[]> = of([]);
   productosProveedor: Observable<Producto[]> = of([]);
   carrito: ProductoCarrito[] = [];
-  proveedorSeleccionado: string = '';
+  proveedorSeleccionado?: Proveedor;
+
+  nuevoPedido?: Pedido
 
   protected readonly WEB_URL = WEB_URL;
   ocultarProveedor: boolean = true;
@@ -36,7 +38,7 @@ export class CarritoPedidosComponent {
         this.router.navigate(['/login']);
       } else {
         this.loggedInUser = res;
-        this.cargarProveedores();
+        this.proveedores = this.dal.getProveedores();
       }
     });
   }
@@ -44,14 +46,6 @@ export class CarritoPedidosComponent {
   async logout(): Promise<void> {
     await account.deleteSession('current');
     await this.router.navigate(['/login']);
-  }
-
-  cargarProveedores(): void {
-    this.proveedores = this.dal.getProveedores();
-  }
-
-  cargarProductos(id: number) {
-    this.productosProveedor = this.dal.getProductosProveedor(id);
   }
 
   agregarAlCarrito(producto: Producto): void {
@@ -66,9 +60,10 @@ export class CarritoPedidosComponent {
       const productoCarrito: ProductoCarrito = {
         ...producto,
         cantidad: 1,
-        precio_total: producto.precio * (1 - producto.descuento) * (1 + producto.impuesto)
+        precio_total: 0
       };
       this.carrito.push(productoCarrito);
+      this.actualizarPrecioTotal(productoCarrito)
     }
   }
 
@@ -81,7 +76,9 @@ export class CarritoPedidosComponent {
 
   // Función para actualizar el precio total de un producto en el carrito cuando se incrementa o decrementa la cantidad
   actualizarPrecioTotal(producto: ProductoCarrito): void {
-    producto.precio_total = producto.precio * producto.cantidad * (1 - producto.descuento) * (1 + producto.impuesto);
+    const precioSinImpuesto = producto.precio * producto.cantidad;
+    const montoImpuesto = precioSinImpuesto * (producto.impuesto / 100);
+    producto.precio_total = precioSinImpuesto + montoImpuesto;
   }
 
   // Función para manejar el cambio de proveedor del select de proveedores
@@ -96,8 +93,8 @@ export class CarritoPedidosComponent {
         )
       )
     ).subscribe(p => {
-        this.proveedorSeleccionado = p!.nombre;
-        this.cargarProductos(p!.idProveedor);
+        this.proveedorSeleccionado = p;
+        this.productosProveedor = this.dal.getProductosProveedor(p!.idProveedor);
         this.ocultarProveedor = false;
         this.ocultarSelector = true;
       }
@@ -119,4 +116,37 @@ export class CarritoPedidosComponent {
     }
   }
 
+  tramitarPedido() {
+    if (this.proveedorSeleccionado == null) return;
+
+    let precioTotal = 0;
+
+    this.nuevoPedido = {
+      idPedido: -1,
+      fechaPedido: new Date(),
+      precioTotal: 0,
+      estado: 'Pendiente', // Por ejemplo
+      proveedor: this.proveedorSeleccionado,
+      detalles: []
+    }
+
+    for (const producto of this.carrito) {
+      const detalle: DetallesPedido = {
+        nombreProducto: producto.nombreProd,
+        cantidad: producto.cantidad,
+        precioUnitario: producto.precio,
+        precioCantidad: producto.precio * producto.precio + (producto.precio * producto.impuesto),
+        impuesto: producto.impuesto
+      };
+      precioTotal += detalle.precioCantidad;
+      this.nuevoPedido.detalles.push(detalle);
+    }
+
+    this.nuevoPedido.precioTotal = precioTotal;
+
+    this.dal.addPedido(this.nuevoPedido).subscribe(_ => {
+      console.log('Se ha agregado el pedido correctamente');
+      this.router.navigate(['/pedidos']);
+    })
+  }
 }

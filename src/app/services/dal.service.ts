@@ -1,9 +1,8 @@
-import {inject, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {API_URL} from '../../appwrite';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Pedido, Proveedor} from '../ent/dto';
-import {Producto} from '../ent/dto';
+import {Pedido, Producto, Proveedor} from '../ent/dto';
 
 @Injectable({
     providedIn: 'root'
@@ -12,7 +11,6 @@ export class DalService {
 
     constructor(private http: HttpClient) { // Inyecta HttpClient aquí
     }
-
 
     getProveedores(): Observable<Proveedor[]> {
         return this.http.get<Proveedor[]>(API_URL + "/proveedores")
@@ -31,19 +29,12 @@ export class DalService {
     }
 
     updatePedido(idPedido: number | undefined, nuevoEstado: string): Observable<Pedido> {
-        if (!idPedido) {
-            throw new Error('idPedido is required');
-        }
+        return this.http.put<Pedido>(API_URL + `/pedidos/${idPedido}`, `"${nuevoEstado}"`);
+    }
 
-        const url = `${API_URL}/pedidos/${idPedido}`;
-
-        // Set the Content-Type header to text/plain
-        const headers = new HttpHeaders({
-            'Content-Type': 'application/json'
-        });
-
-        // Send the string directly in the request body
-        return this.http.put<Pedido>(url, `"${nuevoEstado}"`, { headers });
+    addPedido(nuevoPedido: Pedido): Observable<Pedido> {
+        console.log(JSON.stringify(nuevoPedido));
+        return this.http.post<Pedido>(API_URL + '/pedidos', nuevoPedido);
     }
 }
 

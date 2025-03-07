@@ -13,7 +13,7 @@
         </option>
       </select>
       <div class="d-flex align-items-center" [class.hidden]="ocultarProveedor">
-        <h2 class="textoRosa m-4">{{ proveedorSeleccionado }}</h2>
+        <h2 class="textoRosa m-4">{{ proveedorSeleccionado?.nombre }}</h2>
         <button class="btn btn-primary h-50" (click)="cambiarProveedor()">Cambiar</button>
       </div>
     </div>
@@ -37,7 +37,6 @@
         <tr class="tablaCuerpo tablaAtributos">
           <td class="textoAtributosTabla">Producto</td>
           <td class="textoAtributosTabla">Cantidad</td>
-          <td class="textoAtributosTabla">Descuento</td>
           <td class="textoAtributosTabla">Impuesto</td>
           <td class="textoAtributosTabla">Precio Unitario</td>
           <td class="textoAtributosTabla">Precio Total</td>
@@ -57,7 +56,6 @@
                      (input)="actualizarCantidad(producto, $event)"
                      class="cantidad-input"/>
             </td>
-            <td [width]="150">{{ producto.descuento }}%</td>
             <td [width]="150">{{ producto.impuesto }}%</td>
             <td [width]="150">{{ producto.precio | currency: 'EUR' }}</td>
             <td [width]="150">{{ producto.precio_total | currency: 'EUR' }}</td>
@@ -70,7 +68,7 @@
     </div>
 
     <div class="col d-flex justify-content-end align-content-end m-3">
-        <button class="btn btn-primary">Tramitar Pedido</button>
+        <button class="btn btn-primary" (click)="tramitarPedido()">Tramitar Pedido</button>
     </div>
   </div>
 </main>
