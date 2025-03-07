@@ -23,10 +23,10 @@
         <tbody>
           <tr *ngFor="let pedido of pedidos | async">
             <td class="align-middle">{{ pedido.idPedido }}</td>
-            <td class="align-middle">{{ pedido.proveedor }}</td>
-            <td class="align-middle">{{ pedido.fechaPedido }}</td>
+            <td class="align-middle">{{ pedido.proveedor.nombre }}</td>
+            <td class="align-middle">{{ pedido.fechaPedido | date }}</td>
             <td class="align-middle">{{ pedido.precioTotal | currency: 'EUR' }}</td>
-            <td class="align-middle">{{ pedido.estado }}</td>
+            <td class="align-middle">{{ pedido.estado | titlecase }}</td>
             <td class="align-middle">
               <button class="btn btn-primary" [routerLink]="['/detalles-pedido', pedido.idPedido]">Detalles</button>
             </td>

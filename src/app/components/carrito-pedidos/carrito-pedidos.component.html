@@ -25,7 +25,6 @@
                   (click)="agregarAlCarrito(producto)">
             <img [src]="WEB_URL + '/images/producto/' + producto.idProducto + '.webp'" height="40px" class="mb-2">
             <div>{{ producto.nombreProd }}</div>
-            <div>{{ producto.precio | currency: 'EUR' }}</div>
           </button>
         </div>
       </div>
@@ -60,7 +59,7 @@
             </td>
             <td [width]="150">{{ producto.descuento }}%</td>
             <td [width]="150">{{ producto.impuesto }}%</td>
-            <td [width]="150">{{ producto.precio_unitario | currency: 'EUR' }}</td>
+            <td [width]="150">{{ producto.precio | currency: 'EUR' }}</td>
             <td [width]="150">{{ producto.precio_total | currency: 'EUR' }}</td>
             <td [width]="150">
               <button class="btn btn-danger" (click)="eliminarDelCarrito(producto)">Eliminar</button>
@@ -68,6 +67,10 @@
           </tr>
         </tbody>
       </table>
+    </div>
+
+    <div class="col d-flex justify-content-end align-content-end m-3">
+        <button class="btn btn-primary">Tramitar Pedido</button>
     </div>
   </div>
 </main>

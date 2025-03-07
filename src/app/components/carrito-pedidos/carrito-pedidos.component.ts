@@ -10,7 +10,6 @@ import {map, Observable, of} from 'rxjs';
 // Interfaces para mostrar los datos
 interface ProductoCarrito extends Producto {
   cantidad: number;
-  precio_unitario: number;
   precio_total: number;
 }
 
@@ -67,7 +66,6 @@ export class CarritoPedidosComponent {
       const productoCarrito: ProductoCarrito = {
         ...producto,
         cantidad: 1,
-        precio_unitario: producto.precio,
         precio_total: producto.precio * (1 - producto.descuento) * (1 + producto.impuesto)
       };
       this.carrito.push(productoCarrito);
@@ -83,7 +81,7 @@ export class CarritoPedidosComponent {
 
   // Función para actualizar el precio total de un producto en el carrito cuando se incrementa o decrementa la cantidad
   actualizarPrecioTotal(producto: ProductoCarrito): void {
-    producto.precio_total = producto.precio_unitario * producto.cantidad * (1 - producto.descuento) * (1 + producto.impuesto);
+    producto.precio_total = producto.precio * producto.cantidad * (1 - producto.descuento) * (1 + producto.impuesto);
   }
 
   // Función para manejar el cambio de proveedor del select de proveedores

@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {Router, RouterLink} from '@angular/router';
 import {FuncsService} from '../../services/funcs.service';
 import {account} from '../../../appwrite';
-import {AsyncPipe, CurrencyPipe, NgFor} from '@angular/common';
+import {AsyncPipe, CurrencyPipe, DatePipe, NgFor, TitleCasePipe} from '@angular/common';
 import {DalService} from '../../services/dal.service';
 import {Observable, of} from 'rxjs';
 import {Pedido} from '../../ent/dto';
@@ -10,7 +10,7 @@ import {Pedido} from '../../ent/dto';
 
 @Component({
   selector: 'app-listado-pedidos',
-  imports: [NgFor, RouterLink, CurrencyPipe, AsyncPipe],
+  imports: [NgFor, RouterLink, CurrencyPipe, AsyncPipe, TitleCasePipe, DatePipe],
   templateUrl: './listado-pedidos.component.html',
   styleUrls: ['./listado-pedidos.component.css']
 })
