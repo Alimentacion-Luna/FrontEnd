@@ -45,4 +45,16 @@ export class DetallesPedidoComponent implements OnInit {
       }
     });
   }
+
+  entregarPedido(idPedido: number | undefined) {
+   this.dal.updatePedido(idPedido, "recibido").subscribe(
+     p => this.pedido = p
+   )
+  }
+
+  cancelarPedido(idPedido: number | undefined) {
+    this.dal.updatePedido(idPedido, "cancelado").subscribe(
+      p => this.pedido = p
+    )
+  }
 }

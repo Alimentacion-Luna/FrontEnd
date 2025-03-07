@@ -21,8 +21,8 @@
       <div class="info-right ml-3">
         <p class="estado">
           <strong>Estado:</strong> {{ pedido?.estado }}
-          <button class="bg-success ml-3">Entregado</button>
-          <button class="bg-danger ml-3">No Entregado</button>
+          <button class="bg-success ml-3" (click)="entregarPedido(pedido?.idPedido)">Entregado</button>
+          <button class="bg-danger ml-3" (click)="cancelarPedido(pedido?.idPedido)">Cancelar</button>
         </p>
         <p><strong>Fecha del Pedido:</strong> {{ pedido?.fechaPedido | date }}</p>
       </div>
@@ -34,7 +34,6 @@
       <table class="table">
         <thead class="thead-dark">
           <tr>
-            <th >Nº Producto</th>
             <th >Producto</th>
             <th >Cantidad</th>
             <th >Precio Unitario (€)</th>
@@ -49,7 +48,6 @@
           <table class="table table-dark table-hover">
           <tbody>
             <tr *ngFor="let producto of pedido?.detalles">
-              <td >id</td>
               <td >{{ producto.nombreProducto }}</td>
               <td >{{ producto.cantidad }}</td>
               <td >{{ producto.precioUnitario | currency: 'EUR' }}</td>
