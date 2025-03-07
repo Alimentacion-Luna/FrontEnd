@@ -38,7 +38,6 @@
             <th >Cantidad</th>
             <th >Precio Unitario (€)</th>
             <th >Precio Total (€)</th>
-            <th >Descuento (%)</th>
             <th >Impuesto (%)</th>
           </tr>
         </thead>
@@ -52,7 +51,6 @@
               <td >{{ producto.cantidad }}</td>
               <td >{{ producto.precioUnitario | currency: 'EUR' }}</td>
               <td >{{ producto.precioCantidad | currency: 'EUR' }}</td>
-              <td >{{ producto.descuento }}%</td>
               <td >{{ producto.impuesto }}%</td>
             </tr>
           </tbody>
