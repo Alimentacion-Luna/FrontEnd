@@ -21,14 +21,14 @@
     <div class="table-body-scroll">
       <table class="table table-dark table-hover">
         <tbody>
-          <tr *ngFor="let pedido of pedidos">
-            <td class="align-middle">{{ pedido.id_pedido }}</td>
-            <td class="align-middle">{{ pedido.id_proveedor }}</td>
-            <td class="align-middle">{{ pedido.fecha_pedido }}</td>
-            <td class="align-middle">{{ pedido.precio_total | currency: 'EUR' }}</td>
-            <td class="align-middle">{{ pedido.estado }}</td>
+          <tr *ngFor="let pedido of pedidos | async">
+            <td class="align-middle">{{ pedido.idPedido }}</td>
+            <td class="align-middle">{{ pedido.proveedor.nombre }}</td>
+            <td class="align-middle">{{ pedido.fechaPedido | date }}</td>
+            <td class="align-middle">{{ pedido.precioTotal | currency: 'EUR' }}</td>
+            <td class="align-middle">{{ pedido.estado | titlecase }}</td>
             <td class="align-middle">
-              <button class="btn btn-primary" [routerLink]="['/detalles-pedido', pedido.id_pedido]">Detalles</button>
+              <button class="btn btn-primary" [routerLink]="['/detalles-pedido', pedido.idPedido]">Detalles</button>
             </td>
           </tr>
         </tbody>

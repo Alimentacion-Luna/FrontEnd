@@ -18,6 +18,10 @@
   --tertiary-text: #919191;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .bg {
   background-color: var(--background);
 }

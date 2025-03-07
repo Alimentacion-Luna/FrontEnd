@@ -1,10 +1,10 @@
-import { NgIf } from '@angular/common';
-import { Component } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
-import { FuncsService } from './services/funcs.service';
-import { account } from '../appwrite';
+import {NgIf} from '@angular/common';
+import {Component} from '@angular/core';
+import {Router, RouterOutlet} from '@angular/router';
+import {FuncsService} from './services/funcs.service';
+import {account} from '../appwrite';
 import {NgbCollapseModule} from '@ng-bootstrap/ng-bootstrap';
-import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbPopoverModule} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
@@ -19,10 +19,7 @@ export class AppComponent {
   loggedInUser: any = null;
 
 
-  
-
   isLogged(): Boolean {
-
     let respuesta: Boolean = false
 
     if (this.router.url !== "/login") {
@@ -35,25 +32,21 @@ export class AppComponent {
   constructor(private _router: Router, private funcs: FuncsService) {
     this.router = _router
 
-    
-        // verificar que sea un usuario registrado
-        /* Esta función no consigue hacer lo que hace. */
-        funcs.getLoggedInUser().then(res => {
-          if (res == null) {
-            this.router.navigate(['/login']);
-          } else {
-            this.loggedInUser = res;
-          }
-        });
-
+    // verificar que sea un usuario registrado
+    /* Esta función no consigue hacer lo que hace. */
+    funcs.getLoggedInUser().then(res => {
+      if (res == null) {
+        this.router.navigate(['/login']);
+      } else {
+        this.loggedInUser = res;
+      }
+    });
   }
 
-    async logout(): Promise<void> {
-      await account.deleteSession('current');
-      this.router.navigate(['/login']);
-    }
-
-
+  async logout(): Promise<void> {
+    await account.deleteSession('current');
+    await this.router.navigate(['/login']);
+  }
 }
 
 

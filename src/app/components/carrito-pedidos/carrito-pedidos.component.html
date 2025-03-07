@@ -6,22 +6,25 @@
 
   <div class="generalContent box-shadow">
     <div class="mb-4">
-      <select class="form-select" (change)="onProveedorChange($event)">
+      <select class="form-select" [class.hidden]="ocultarSelector" (change)="onProveedorChange($event)">
         <option value="">Seleccione un proveedor</option>
-        <option *ngFor="let proveedor of proveedores" [value]="proveedor.nombre">
+        <option *ngFor="let proveedor of proveedores | async" [value]="proveedor.idProveedor">
           {{ proveedor.nombre }}
         </option>
       </select>
+      <div class="d-flex align-items-center" [class.hidden]="ocultarProveedor">
+        <h2 class="textoRosa m-4">{{ proveedorSeleccionado }}</h2>
+        <button class="btn btn-primary h-50" (click)="cambiarProveedor()">Cambiar</button>
+      </div>
     </div>
 
     <div class="productos-container">
       <div class="productos-scroll">
-        <div *ngFor="let producto of productosProveedor">
+        <div *ngFor="let producto of productosProveedor | async">
           <button type="button" class="btn producto-btn box-shadow-boton btn-primary"
                   (click)="agregarAlCarrito(producto)">
-            <img [src]="producto.imagen" height="40px" class="mb-2">
-            <div>{{ producto.nombre }}</div>
-            <div>{{ producto.precio | currency: 'EUR' }}</div>
+            <img [src]="WEB_URL + '/images/producto/' + producto.idProducto + '.webp'" height="40px" class="mb-2">
+            <div>{{ producto.nombreProd }}</div>
           </button>
         </div>
       </div>
@@ -48,20 +51,26 @@
       <table class="tablaCuerpo">
         <tbody>
           <tr *ngFor="let producto of carrito">
-            <td [width]="150">{{ producto.nombre }}</td>
+            <td [width]="150">{{ producto.nombreProd }}</td>
             <td [width]="150">
-              <input type="number" min="1" [value]="producto.cantidad" 
-                     (input)="actualizarCantidad(producto, $event)" 
-                     class="cantidad-input" />
+              <input type="number" min="1" [value]="producto.cantidad"
+                     (input)="actualizarCantidad(producto, $event)"
+                     class="cantidad-input"/>
             </td>
-            <td [width]="150">{{ producto.descuento * 100 }}%</td>
-            <td [width]="150">{{ producto.impuesto * 100 }}%</td>
-            <td [width]="150">{{ producto.precio_unitario | currency: 'EUR' }}</td>
+            <td [width]="150">{{ producto.descuento }}%</td>
+            <td [width]="150">{{ producto.impuesto }}%</td>
+            <td [width]="150">{{ producto.precio | currency: 'EUR' }}</td>
             <td [width]="150">{{ producto.precio_total | currency: 'EUR' }}</td>
-            <td [width]="150"><button class="btn btn-danger" (click)="eliminarDelCarrito(producto)">Eliminar</button></td>
+            <td [width]="150">
+              <button class="btn btn-danger" (click)="eliminarDelCarrito(producto)">Eliminar</button>
+            </td>
           </tr>
         </tbody>
       </table>
+    </div>
+
+    <div class="col d-flex justify-content-end align-content-end m-3">
+        <button class="btn btn-primary">Tramitar Pedido</button>
     </div>
   </div>
 </main>

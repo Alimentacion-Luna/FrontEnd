@@ -1,7 +1,7 @@
 <main class="main">
 
   <div class="d-flex justify-content-between align-items-center mb-3">
-    <h1>Pedido Nº - #{{ pedido.id_pedido }}</h1>
+    <h1>Pedido Nº - #{{ pedido?.idPedido }}</h1>
     <button class="btn btn-primary" onclick="history.back()">Volver</button>
   </div>
 
@@ -13,18 +13,18 @@
       </div>
 
       <div class="info-left ml-3">
-        <p><strong>Proveedor:</strong> {{ pedido.proveedor.nombre }}</p>
-        <p><strong>Correo:</strong> {{ pedido.proveedor.correo }}</p>
-        <p><strong>Teléfono:</strong> {{ pedido.proveedor.telefono }}</p>
+        <p><strong>Proveedor:</strong> {{ pedido?.proveedor?.nombre }}</p>
+        <p><strong>Correo:</strong> {{ pedido?.proveedor?.correo }}</p>
+        <p><strong>Teléfono:</strong> {{ pedido?.proveedor?.telefono }}</p>
       </div>
 
       <div class="info-right ml-3">
         <p class="estado">
-          <strong>Estado:</strong> {{ pedido.estado }}
+          <strong>Estado:</strong> {{ pedido?.estado }}
           <button class="bg-success ml-3">Entregado</button>
           <button class="bg-danger ml-3">No Entregado</button>
         </p>
-        <p><strong>Fecha del Pedido:</strong> {{ pedido.fecha_pedido }}</p>
+        <p><strong>Fecha del Pedido:</strong> {{ pedido?.fechaPedido | date }}</p>
       </div>
     </div>
 
@@ -48,14 +48,14 @@
         <div class="table-body-scroll">
           <table class="table table-dark table-hover">
           <tbody>
-            <tr *ngFor="let producto of productos">
-              <td >{{ producto.id_producto }}</td>
-              <td >{{ producto.nombre }}</td>
+            <tr *ngFor="let producto of pedido?.detalles">
+              <td >id</td>
+              <td >{{ producto.nombreProducto }}</td>
               <td >{{ producto.cantidad }}</td>
-              <td >{{ producto.precio_unitario | currency: 'EUR' }}</td>
-              <td >{{ producto.precio_total | currency: 'EUR' }}</td>
-              <td >{{ producto.descuento * 100 }}%</td>
-              <td >{{ producto.impuesto * 100 }}%</td>
+              <td >{{ producto.precioUnitario | currency: 'EUR' }}</td>
+              <td >{{ producto.precioCantidad | currency: 'EUR' }}</td>
+              <td >{{ producto.descuento }}%</td>
+              <td >{{ producto.impuesto }}%</td>
             </tr>
           </tbody>
         </table>
