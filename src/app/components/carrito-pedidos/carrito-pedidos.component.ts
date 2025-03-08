@@ -135,7 +135,7 @@ export class CarritoPedidosComponent {
         nombreProducto: producto.nombreProd,
         cantidad: producto.cantidad,
         precioUnitario: producto.precio,
-        precioCantidad: producto.precio * producto.precio + (producto.precio * producto.impuesto),
+        precioCantidad: producto.precio + (producto.precio * (producto.impuesto / 100)),
         impuesto: producto.impuesto
       };
       precioTotal += detalle.precioCantidad;
@@ -146,7 +146,7 @@ export class CarritoPedidosComponent {
 
     this.dal.addPedido(this.nuevoPedido).subscribe(_ => {
       console.log('Se ha agregado el pedido correctamente');
-      this.router.navigate(['/pedidos']);
+      this.router.navigate(['/listado-pedidos']);
     })
   }
 }
