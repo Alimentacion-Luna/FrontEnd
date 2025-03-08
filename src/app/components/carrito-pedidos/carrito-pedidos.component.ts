@@ -138,7 +138,7 @@ export class CarritoPedidosComponent {
         precioCantidad: producto.precio + (producto.precio * (producto.impuesto / 100)),
         impuesto: producto.impuesto
       };
-      precioTotal += detalle.precioCantidad;
+      precioTotal += detalle.precioCantidad * detalle.cantidad;
       this.nuevoPedido.detalles.push(detalle);
     }
 
