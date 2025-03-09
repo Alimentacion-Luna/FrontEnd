@@ -132,6 +132,7 @@ export class CarritoPedidosComponent {
 
     for (const producto of this.carrito) {
       const detalle: DetallesPedido = {
+        id_producto: producto.idProducto,
         nombreProducto: producto.nombreProd,
         cantidad: producto.cantidad,
         precioUnitario: producto.precio,
