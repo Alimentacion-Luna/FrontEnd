@@ -20,6 +20,7 @@ export interface Pedido {
 }
 
 export interface DetallesPedido {
+  id_producto: number;
   nombreProducto: string;
   cantidad: number;
   precioUnitario: number;

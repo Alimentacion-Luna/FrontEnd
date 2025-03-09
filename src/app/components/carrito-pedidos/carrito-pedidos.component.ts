@@ -132,10 +132,11 @@ export class CarritoPedidosComponent {
 
     for (const producto of this.carrito) {
       const detalle: DetallesPedido = {
+        id_producto: producto.idProducto,
         nombreProducto: producto.nombreProd,
         cantidad: producto.cantidad,
         precioUnitario: producto.precio,
-        precioCantidad: producto.precio + (producto.precio * (producto.impuesto / 100)),
+        precioCantidad: producto.precio * producto.cantidad + (producto.precio * (producto.impuesto / 100)),
         impuesto: producto.impuesto
       };
       precioTotal += detalle.precioCantidad * detalle.cantidad;
