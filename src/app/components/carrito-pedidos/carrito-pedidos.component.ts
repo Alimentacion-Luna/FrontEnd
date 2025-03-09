@@ -136,7 +136,7 @@ export class CarritoPedidosComponent {
         nombreProducto: producto.nombreProd,
         cantidad: producto.cantidad,
         precioUnitario: producto.precio,
-        precioCantidad: producto.precio * producto.precio + (producto.precio * producto.impuesto),
+        precioCantidad: producto.precio * producto.cantidad + (producto.precio * (producto.impuesto / 100)),
         impuesto: producto.impuesto
       };
       precioTotal += detalle.precioCantidad;
